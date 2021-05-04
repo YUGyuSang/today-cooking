@@ -38,7 +38,7 @@
 	            <input type="text" name="nickname" value="" placeholder="닉네임">
 	        </div>
 	        <div id="signupbtn">
-	            <button>회원가입하기</button>
+	            <button>회원가입 하기</button>
 	        </div>
 	    </div>
     </form>

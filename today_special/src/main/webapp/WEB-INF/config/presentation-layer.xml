@@ -9,14 +9,12 @@
 		<property name="mappings">
 			<props>
 				<prop key="/insertUser.do">insertUser</prop>
+
 			</props>
 		</property>
 	</bean>
+	
 	<!-- Controller 등록 -->
 	<bean id="insertUser" class="com.myspring.view.user.InsertUserController"></bean>
-	<!-- ViewResolver 등록 -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/board/"/>
-		<property name="suffix" value=".jsp"/>
-	</bean>
+
 </beans>
