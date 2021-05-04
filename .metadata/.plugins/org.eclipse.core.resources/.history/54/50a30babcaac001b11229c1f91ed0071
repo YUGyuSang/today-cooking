@@ -1,0 +1,18 @@
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+import com.myspring.today.user.UserService;
+import com.myspring.today.user.UserVO;
+
+public class UserServiceClient {
+	AbstractApplicationContext container = new GenericXmlApplicationContext("applicationContext.xml");
+	UserService userService=(UserService) container.getBean("userService");
+	UserVO vo=new UserVO();
+	vo.setId("testid");
+	vo.setPassword("1234");
+	vo.setEmail("test@naver.com");
+	vo.setNickname("test");
+	userService.inserUser(vo);
+	
+	
+}

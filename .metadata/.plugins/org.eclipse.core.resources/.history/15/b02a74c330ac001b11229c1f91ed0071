@@ -1,0 +1,5 @@
+package com.myspring.view.user;
+
+public class SignUpController {
+
+}

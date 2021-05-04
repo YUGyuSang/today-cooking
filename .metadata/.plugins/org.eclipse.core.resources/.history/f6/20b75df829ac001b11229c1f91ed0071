@@ -1,0 +1,5 @@
+package com.myspring.today.user.impl;
+
+public class UserDAO {
+	private JdbcTemplate jdbcTemplate;
+}

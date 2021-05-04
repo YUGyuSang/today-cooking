@@ -1,0 +1,5 @@
+package com.myspring.today.user;
+
+public class UserVO {
+
+}

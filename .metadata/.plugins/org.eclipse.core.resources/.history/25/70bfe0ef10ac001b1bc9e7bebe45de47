@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>오늘의 요리: 회원가입</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <link href="signUp.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header class="signhead">
+        <img src="" alt="로고" class="logo" />
+    </header>
+
+    <h1>회원가입</h1>
+
+    <main>
+        <div class="textline">
+            <form name="signup" action="#" method="post">
+                <ul class="signup_ul">
+                    <li><input class="signup_li" type="text" name="id" value="" placeholder="아이디"></li>
+                    <li><input class="signup_li" type="password" name="pw" value="" placeholder="비밀번호"></li>
+                    <li><input class="signup_li" type="password" name="rpw" value="" placeholder="비밀번호 확인"></li>
+                    <li><input class="signup_li" type="email" name="email" value="" placeholder="이메일"></li>
+                    <li><input class="signup_li" type="text" name="name" value="" placeholder="닉네임"></li>
+                </ul>
+            </form>
+        </div>
+    </main>
+
+    <div class="signupbtn">
+        <button>회원가입하기</button>
+    </div>
+</body>
+</html>

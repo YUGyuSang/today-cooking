@@ -1,0 +1,10 @@
+package com.myspring.today.user;
+
+import com.myspring.today.user.UserVO;
+
+public interface UserService {
+
+	// 회원 추가
+	void insertUser(UserVO vo);
+
+}

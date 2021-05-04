@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.jdbc.core.JdbcTemplate"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.Controller"/>
+    <fullyQualifiedTypeName name="com.myspring.today.user.UserVO"/>
+    <fullyQualifiedTypeName name="com.myspring.today.user.UserService"/>
+    <fullyQualifiedTypeName name="com.google.api.services.youtube.YouTube.Search"/>
+</qualifiedTypeNameHistroy>
