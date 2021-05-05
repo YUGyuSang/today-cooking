@@ -1,7 +1,0 @@
-package com.myspring.today.user;
-
-import org.springframework.jdbc.core.JdbcTemplate;
-public class UserDAO{
-	private JdbcTemplate jdbcTemplate;
-
-}

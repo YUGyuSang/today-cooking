@@ -1,8 +1,0 @@
-INDEX VERSION 1.4+C:\Users\lhkl\Desktop\today_special\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-392706733.index
-2506629820.index
-4131486196.index
-4071036305.index
-602355857.index
-960567925.index
-3721871648.index
