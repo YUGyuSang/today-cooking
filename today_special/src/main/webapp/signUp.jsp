@@ -16,29 +16,29 @@
                 <a href="#"><img src="logo.png" alt="로고"></a>
             </div>
         </div>
-    </header>
+    </header> 
     <form action="insertUser.do" method="post">
 	    <div id="container">
 	        <div id="signtext">
 	            <h1>회원가입</h1>
 	        </div>
 	        <div class="inputs">
-	            <input type="text" name="id" value="" placeholder="아이디">
+	            <input type="text" name="id" placeholder="아이디">
 	        </div>
 	        <div class="inputs">
-	            <input type="password" name="pw" value="" placeholder="비밀번호">
+	            <input type="password" name="pw" placeholder="비밀번호">
 	        </div>
 	        <div class="inputs">
-	            <input type="password" name="repw" value="" placeholder="비밀번호 재확인">
+	            <input type="password" name="repw" placeholder="비밀번호 재확인">
 	        </div>
 	        <div class="inputs">
-	            <input type="email" name="email" value="" placeholder="이메일">
+	            <input type="email" name="email" placeholder="이메일">
 	        </div>
 	        <div class="inputs">
 	            <input type="text" name="nickname" value="" placeholder="닉네임">
 	        </div>
 	        <div id="signupbtn">
-	            <button>회원가입 하기</button>
+	            <button>완료</button>
 	        </div>
 	    </div>
     </form>
