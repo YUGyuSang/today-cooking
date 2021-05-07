@@ -1,37 +1,25 @@
 package com.myspring.view.user;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
 
 import com.myspring.today.user.UserService;
 import com.myspring.today.user.UserVO;
+import com.myspring.today.user.impl.UserDAO;
 
-public class InsertUserController implements Controller{
-
-	@Override
-	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+@Controller
+public class InsertUserController{
+	
+	@RequestMapping("/insertUser.do")
+	public ModelAndView insertUser(UserVO vo, UserDAO userDAO) {
 		AbstractApplicationContext container = new GenericXmlApplicationContext("applicationContext.xml");
 		
 		UserService userService=(UserService) container.getBean("userService");
-		
-		//사용자 입력 정보 추출
-		String id=request.getParameter("id");
-		String pw=request.getParameter("pw");
-		String email = request.getParameter("email");
-		String nickname=request.getParameter("nickname");
-		
-		//DB 연동 처리
-		UserVO vo=new UserVO();
-		vo.setId(id);
-		vo.setPassword(pw);
-		vo.setEmail(email);
-		vo.setNickname(nickname);
-		
+		System.out.println(vo.getNickname());
+		//회원 등록
 		userService.insertUser(vo);
 		
 		//화면 네비게이션
