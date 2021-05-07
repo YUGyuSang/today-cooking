@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>footer</title>
-    <link rel="stylesheet" href="footer.css" type="text/css">
+    <link rel="stylesheet" href="./css/footer.css" type="text/css">
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
 <body>
@@ -27,10 +27,10 @@
                             </div>
                             <div id="list">
                                 <ul>
-                                        <li><a href="#"><i class="fas fa-question"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-comment"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-music"></i></a></li>
+                                        <li class="lilist"><a href="#"><i class="fas fa-question"></i></a></li>
+                                        <li class="lilist"><a href="#"><i class="fas fa-comment"></i></a></li>
+                                        <li class="lilist"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                        <li class="lilist"><a href="#"><i class="fas fa-music"></i></a></li>
                                 </ul>
                             </div>
                

@@ -29,10 +29,10 @@ a{
     justify-content: space-between;
 }
 
-li{
+.lilist{
     list-style: none;
     font-size: 23px;
-    margin: 20px;
+    margin: 8px;
     padding: 10px;
 }
 
