@@ -1,0 +1,99 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Hi+Melody&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+body{
+    font-family: 'Hi Melody', cursive;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+#header{
+    width: 100%;
+    height: 150px;
+    background-color: rgb(203, 228, 114);
+    text-align: center;
+} 
+
+img{
+    margin-top: 20px;
+    width: 250px;
+}
+
+#container{
+    width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.input-file-button{
+    padding: 6px 25px;
+    background-color:#FF6600;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    border: 0px;
+    font-size: 20px;
+    font-weight: 700;
+    
+}
+
+#myimg{
+      width: 300px;
+      height: 300px;
+      border: 3px solid #9BBC00;
+      margin: 0 auto;
+      margin-bottom: 20px;
+}
+
+.inputs input{
+    outline: none;
+    font-size: 15px;
+    padding: 15px;
+    padding-right: 150px;
+    margin-top: 20px;
+}
+
+#change{
+    background-color: #9BBC00;
+    border: none;
+    color: #fff;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    outline: none;
+    cursor: pointer;
+    border-radius: 1em;
+    width: 300px;
+    font-weight: 700;
+    margin-top: 20px;
+    font-family: 'Hi Melody', cursive;
+    font-family: 'Noto Sans KR', sans-serif;
+    
+}
+
+#end{
+    background-color: #9BBC00;
+    border: none;
+    color: #fff;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    outline: none;
+    cursor: pointer;
+    border-radius: 1em;
+    width: 100px;
+    font-weight: 700;
+    font-family: 'Hi Melody', cursive;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+
+
+
