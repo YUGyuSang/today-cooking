@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Insert title here</title>
+<title>오늘의 요리</title>
 <link rel="stylesheet" href="./css/index.css" type="text/css">
 </head>
 <body>

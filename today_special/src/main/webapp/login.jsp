@@ -29,7 +29,7 @@
                 <a href=""><button id="log">로그인</button></a>
             </div>
             <div class="inputsd">
-                <input type="password" name="pw" value="" placeholder="비밀번호">
+                <input type="password" name="password" value="" placeholder="비밀번호">
             </div>
             <div class="signup">
                 <a href="#"><button id="signup" href=>회원가입</button></a>

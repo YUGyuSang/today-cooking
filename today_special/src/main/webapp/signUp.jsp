@@ -26,10 +26,10 @@
 	            <input type="text" name="id" placeholder="아이디">
 	        </div>
 	        <div class="inputs">
-	            <input type="password" name="pw" placeholder="비밀번호">
+	            <input type="password" name="password" placeholder="비밀번호">
 	        </div>
 	        <div class="inputs">
-	            <input type="password" name="repw" placeholder="비밀번호 재확인">
+	            <input type="password" placeholder="비밀번호 재확인">
 	        </div>
 	        <div class="inputs">
 	            <input type="email" name="email" placeholder="이메일">
