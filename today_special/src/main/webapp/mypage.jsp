@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>myPage</title>
+    <title></title>
     <link rel="stylesheet" href="./css/myPage.css" type="text/css">
 </head>
 <body>
@@ -14,7 +14,7 @@
         <header>
             <div id="header">
                 <div>
-                    <a href="#"><img src="./img/win.png" alt="로고"></a>
+                    <a href="#"><img src="./img/logo.png" alt="로고"></a>
                 </div>
             </div>
         </header>
