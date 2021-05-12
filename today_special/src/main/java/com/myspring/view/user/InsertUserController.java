@@ -15,10 +15,9 @@ public class InsertUserController {
 	//회원가입
 	@RequestMapping("/insertUser.do")
 	public String insertUser(UserVO vo) {
-		//AbstractApplicationContext container = new GenericXmlApplicationContext("applicationContext.xml");
 		userDAO.insertUser(vo);
-		// 화면 네비게이션
 		return "index.jsp";
 	}
+	
 
 }
