@@ -13,9 +13,17 @@ public class UserDAO {
 
 	// sql 명령어
 	private final String USER_INSERT = "insert into user(id,password,email,nickname) values(?,?,?,?)";
+	private final String USER_GET = "select * from user where id=? and password=?";
 
-	// 회원 추가
+	// 회원가입
 	public void insertUser(UserVO vo) {
 		jdbcTemplate.update(USER_INSERT, vo.getId(), vo.getPassword(), vo.getEmail(), vo.getNickname());
+	}
+	
+	// 로그인
+	public UserVO getUser(UserVO vo) {
+		System.out.println(jdbcTemplate);
+		Object[] args = { vo.getId(),vo.getPassword() };
+		return jdbcTemplate.queryForObject(USER_GET, args, new UserRowMapper());
 	}
 }

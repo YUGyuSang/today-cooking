@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="./css/login.css" type="text/css">
 </head>
 <body>
-    <form action="">
-        <header>
-            <div id="header">
-                <div>
-                    <a href="#"><img src="logo.png" alt="로고"></a>
-                </div>
+    <header>
+        <div id="header">
+            <div>
+                <a href="#"><img src="logo.png" alt="로고"></a>
             </div>
-        </header>
+        </div>
+    </header>
+	<form action="login.do" method="post">
         <div id="container">
             <div>
                 <h1>로그인</h1>
@@ -32,7 +32,7 @@
                 <input type="password" name="password" value="" placeholder="비밀번호">
             </div>
             <div class="signup">
-                <a href="#"><button id="signup" href=>회원가입</button></a>
+                <a href="signup.jsp"><button type="button" id="signup">회원가입</button></a>
             </div>
         </div>
     </form>

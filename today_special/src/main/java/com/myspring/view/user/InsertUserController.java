@@ -11,11 +11,11 @@ import com.myspring.today.user.impl.UserDAO;
 public class InsertUserController {
 	@Autowired
 	private UserDAO userDAO;
+	
 	//회원가입
 	@RequestMapping("/insertUser.do")
 	public String insertUser(UserVO vo) {
 		//AbstractApplicationContext container = new GenericXmlApplicationContext("applicationContext.xml");
-		// 회원 등록
 		userDAO.insertUser(vo);
 		// 화면 네비게이션
 		return "index.jsp";
