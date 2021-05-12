@@ -17,7 +17,7 @@
             </div>
             <div id="srarch">
                 <input type="search" name="recipe_name">
-                <a href="#"><i class="fas fa-search"></i></a>
+                <button class="srarch"><i class="fas fa-search"></i></button>
             </div>
           
             <span><a href="#"><i class="fas fa-user"></i></a></span>

@@ -21,7 +21,13 @@ a{
     border: 3px solid #9BBC00;
     border-radius: 2em;
     padding: 8px;
-    
+}
+.srarch{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    color: #9BBC00;
+    font-size: 24px;
 }
 span{
     padding: 20px;
