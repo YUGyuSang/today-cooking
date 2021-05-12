@@ -11,14 +11,14 @@
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
 <body>
-    <form action="">
+    <form action="search.do" method="post">
         <div id="container" class="warp">
             <div id="imger">
                 <img src="./img/logo.png" alt="이미지">
             </div>
             <div id="srarch">
-                <input type="search" value="" name="검색">
-                <a href="#"><i class="fas fa-search"></i></a>
+                <input type="search" name="recipe_name">
+                <button class="srarch"><i class="fas fa-search"></i></a>
             </div>
           
             <div class="dropdown">

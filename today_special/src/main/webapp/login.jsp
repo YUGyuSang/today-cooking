@@ -32,7 +32,7 @@
                 <input type="password" name="password" value="" placeholder="비밀번호">
             </div>
             <div class="signup">
-                <a href="signup.jsp"><button type="button" id="signup">회원가입</button></a>
+                <a href="signUp.jsp"><button type="button" id="signup">회원가입</button></a>
             </div>
         </div>
     </form>

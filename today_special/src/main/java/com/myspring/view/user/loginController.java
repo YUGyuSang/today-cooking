@@ -22,7 +22,7 @@ public class loginController {
 		}
 		UserVO user = userDAO.getUser(vo);
 		if (user != null) {
-			session.setAttribute("userId", user.getId());
+			session.setAttribute("loginId", user.getId());
 			return "index.jsp";
 		} else
 			return "login.jsp";

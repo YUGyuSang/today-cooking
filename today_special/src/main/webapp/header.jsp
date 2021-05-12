@@ -10,7 +10,7 @@
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
 <body>
-    <form action="search.do">
+    <form action="getRecipeList.jsp" method="post">
         <div id="container" class="warp">
             <div id="imger">
                 <img id="headerimg" src="./img/logo.png" alt="이미지">
@@ -20,7 +20,7 @@
                 <button class="srarch"><i class="fas fa-search"></i></button>
             </div>
           
-            <span><a href="#"><i class="fas fa-user"></i></a></span>
+            <span><a href="login.jsp"><i class="fas fa-user"></i></a></span>
             <span><a href="#"><i class="fas fa-pen"></i></a></span>
             
         </div>

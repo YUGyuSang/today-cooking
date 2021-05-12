@@ -1,9 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-    String contentPage=request.getParameter("contentPage");
-    if(contentPage==null)
-        contentPage="FirstView.jsp"; 
+	String header_file;
+    String login_check=(String)session.getAttribute("loginId");
+    if(login_check!=null){
+        header_file="afterheader.jsp";
+     }else{
+    	 header_file="header.jsp";
+     }
 %>
 <!DOCTYPE html>
 <html>
@@ -15,7 +19,7 @@
 <body>
 	<div id="wrap">
 		<div id="header">
-			<jsp:include page="header.jsp" />
+			<jsp:include page="<%=header_file %>" />
 		</div>
 	</div>
 	
