@@ -32,7 +32,7 @@ public class YoutubeSearch {
 	
 	static List<YoutubeVO> YoutubeList = new ArrayList<YoutubeVO>();
 	
-	public static List<YoutubeVO> getYoutubeList(String recipe_name) {
+	public static List<YoutubeVO> getYoutubeList(String searchKeyword) {
 		List<YoutubeVO> tmp = new ArrayList<YoutubeVO>();
 		Properties properties = new Properties();
 		try {
@@ -54,7 +54,7 @@ public class YoutubeSearch {
 			YouTube.Search.List search = youtube.search().list("id,snippet");
 			String apiKey = properties.getProperty("youtube.apikey");
 			search.setKey(apiKey);
-			search.setQ(recipe_name);
+			search.setQ(searchKeyword);
 			search.setType("video");
 			search.setFields(
 					"items(id/kind,id/videoId,snippet/title,snippet/thumbnails/default/url)");
@@ -64,7 +64,7 @@ public class YoutubeSearch {
 			List<SearchResult> searchResultList = searchResponse.getItems();
 
 			if (searchResultList != null) {
-				tmp=prettyPrint(searchResultList.iterator(), recipe_name);
+				tmp=prettyPrint(searchResultList.iterator(),searchKeyword);
 			}
 		} catch (GoogleJsonResponseException e) {
 			System.err.println("There was a service error: " + e.getDetails().getCode() + " : "

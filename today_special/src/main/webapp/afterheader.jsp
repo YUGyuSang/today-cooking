@@ -17,7 +17,7 @@
                 <img src="./img/logo.png" alt="이미지">
             </div>
             <div id="srarch">
-                <input type="search" name="recipe_name">
+                <input type="search" name="searchKeyword">
                 <button class="srarch"><i class="fas fa-search"></i></a>
             </div>
           
