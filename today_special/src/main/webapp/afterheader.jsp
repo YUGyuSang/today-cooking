@@ -11,7 +11,7 @@
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
 <body>
-    <form action="search.do" method="post">
+    <form action="getSearchResult.do" method="post">
         <div id="container" class="warp">
             <div id="imger">
                 <img src="./img/logo.png" alt="이미지">

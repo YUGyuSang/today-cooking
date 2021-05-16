@@ -10,22 +10,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 @Controller
 public class SearchController {
 	@Autowired
 	YoutubeSearch youtube;
+	@Autowired
+	NaverSearch naver;
 	
-	
-	@RequestMapping(value="/getYoutubeList.do")
-	public String getYoutubeList(HttpServletRequest request) throws UnsupportedEncodingException {
-		YoutubeSearch youtube = new YoutubeSearch();
+	@RequestMapping(value = "/getSearchResult.do")
+	public String getSearchResult(HttpServletRequest request) throws UnsupportedEncodingException {
+		request.removeAttribute("YoutubeList");
+		request.removeAttribute("NaverList");
+		request.setCharacterEncoding("utf-8");
 		String searchKeyword = request.getParameter("searchKeyword");
-		System.out.println(searchKeyword);
-		/*
-		 * List<YoutubeVO> YoutubeList = youtube.getYoutubeList(searchKeyword);
-		 * request.setAttribute("YoutubeList",YoutubeList);
-		 */
+		List<YoutubeVO> YoutubeList = youtube.getYoutubeList(searchKeyword);
+		List<NaverVO> NaverList = naver.getNaverList(searchKeyword);
+		request.setAttribute("YoutubeList", YoutubeList);
+		request.setAttribute("NaverList", NaverList);
 		return "getRecipeList.jsp";
 	}
 }

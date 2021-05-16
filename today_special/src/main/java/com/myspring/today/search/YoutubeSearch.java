@@ -27,13 +27,12 @@ public class YoutubeSearch {
 	private static String PROPERTIES_FILENAME = "youtube.properties";
 	private static final HttpTransport HTTP_TRANSPORT = new NetHttpTransport();
 	private static final JsonFactory JSON_FACTORY = new JacksonFactory();
-	private static final long NUMBER_OF_VIDEOS_RETURNED = 2;
+	private static final long NUMBER_OF_VIDEOS_RETURNED = 10;
 	private static YouTube youtube;
 	
-	static List<YoutubeVO> YoutubeList = new ArrayList<YoutubeVO>();
-	
+	//API 호출 메소드
 	public static List<YoutubeVO> getYoutubeList(String searchKeyword) {
-		List<YoutubeVO> tmp = new ArrayList<YoutubeVO>();
+		List<YoutubeVO> YoutubeList = new ArrayList<YoutubeVO>();
 		Properties properties = new Properties();
 		try {
 			InputStream in = YoutubeSearch.class.getResourceAsStream(PROPERTIES_FILENAME);
@@ -64,7 +63,7 @@ public class YoutubeSearch {
 			List<SearchResult> searchResultList = searchResponse.getItems();
 
 			if (searchResultList != null) {
-				tmp=prettyPrint(searchResultList.iterator(),searchKeyword);
+				YoutubeList = insertVO(searchResultList.iterator(), searchKeyword);
 			}
 		} catch (GoogleJsonResponseException e) {
 			System.err.println("There was a service error: " + e.getDetails().getCode() + " : "
@@ -74,27 +73,26 @@ public class YoutubeSearch {
 		} catch (Throwable t) {
 			t.printStackTrace();
 		}
-		return tmp;
+		return YoutubeList;
 	}
 
-	private static List<YoutubeVO> prettyPrint(Iterator<SearchResult> iteratorSearchResults, String query) {
+	//API 호출된 결과를 vo에 담는 메소드
+	private static List<YoutubeVO> insertVO(Iterator<SearchResult> iteratorSearchResults,
+			String query) {
+		List<YoutubeVO> YoutubeList = new ArrayList<YoutubeVO>();
 		if (!iteratorSearchResults.hasNext()) {
 			System.out.println(" There aren't any results for your query.");
 		}
 
 		while (iteratorSearchResults.hasNext()) {
-			YoutubeVO vo =new YoutubeVO();
+			YoutubeVO vo = new YoutubeVO();
 			SearchResult singleVideo = iteratorSearchResults.next();
 			ResourceId rId = singleVideo.getId();
-			// Double checks the kind is video.
 			if (rId.getKind().equals("youtube#video")) {
 				Thumbnail thumbnail = singleVideo.getSnippet().getThumbnails().get("default");
-				vo.setVideoId(rId.getVideoId());
-				System.out.println(" Video Id" + rId.getVideoId());
 				vo.setTitle(singleVideo.getSnippet().getTitle());
 				vo.setThumbnailUrl(thumbnail.getUrl());
-				vo.setUrl("https://www.youtube.com/watch?v="+rId.getVideoId());
-				System.out.println(vo.getUrl());
+				vo.setUrl("https://www.youtube.com/watch?v=" + rId.getVideoId());
 			}
 			YoutubeList.add(vo);
 		}
