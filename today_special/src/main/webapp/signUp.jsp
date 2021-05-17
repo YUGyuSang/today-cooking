@@ -37,6 +37,9 @@
 	        <div class="inputs">
 	            <input type="text" name="nickname" value="" placeholder="닉네임">
 	        </div>
+	        <div class="inputs">
+	            <input type="file" name="profile">
+	        </div>
 	        <div id="signupbtn">
 	            <button>완료</button>
 	        </div>

@@ -1,10 +1,13 @@
 package com.myspring.today.user;
 
+import java.util.Arrays;
+
 public class UserVO {
 	private String id;
 	private String password;
 	private String email;
 	private String nickname;
+//	private byte[] profile;
 
 	public String getId() {
 		return id;
@@ -38,8 +41,19 @@ public class UserVO {
 		this.nickname = nickname;
 	}
 
-	@Override
-	public String toString() {
-		return "UserVO [id=" + id + ", password=" + password + ", email=" + email + ", nickname=" + nickname + "]";
-	}
+//	public byte[] getProfile() {
+//		return profile;
+//	}
+//
+//	public void setProfile(byte[] profile) {
+//		this.profile = profile;
+//	}
+
+//	@Override
+//	public String toString() {
+//		return "UserVO [id=" + id + ", password=" + password + ", email=" + email + ", nickname="
+//				+ nickname + ", profile=" + Arrays.toString(profile) + "]";
+//	}
+
+	
 }

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/myPage.css" type="text/css">
 </head>
 <body>
-    <form action="">
+    <form action="updateUser.do" method="post" enctype="multipart/form-data">
         <header>
             <div id="header">
                 <div>
@@ -27,9 +27,9 @@
                     img
                 </div>
                     <label class="input-file-button" for="input-file">
-                    업로드
+                   	업로드
                     </label>
-                    <input type="file" id="input-file" style="display: none;"accept="image/*,.pdf"/> 
+                    <input type="file" id="profile" style="display: none;"accept="image/*,.pdf"/> 
             </div>
             <div class="inputs">
                 <input type="password" name="password" value="" placeholder="비밀번호">

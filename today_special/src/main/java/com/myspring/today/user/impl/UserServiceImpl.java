@@ -17,4 +17,10 @@ public class UserServiceImpl implements UserService {
 
 	}
 
+	@Override
+	public int login(UserVO vo) {
+		return userDAO.login(vo);
+		
+	}
+
 }
