@@ -7,7 +7,7 @@ public class UserVO {
 	private String password;
 	private String email;
 	private String nickname;
-//	private byte[] profile;
+	private byte[] profile;
 
 	public String getId() {
 		return id;
@@ -41,19 +41,19 @@ public class UserVO {
 		this.nickname = nickname;
 	}
 
-//	public byte[] getProfile() {
-//		return profile;
-//	}
-//
-//	public void setProfile(byte[] profile) {
-//		this.profile = profile;
-//	}
+	public byte[] getProfile() {
+		return profile;
+	}
 
-//	@Override
-//	public String toString() {
-//		return "UserVO [id=" + id + ", password=" + password + ", email=" + email + ", nickname="
-//				+ nickname + ", profile=" + Arrays.toString(profile) + "]";
-//	}
+	public void setProfile(byte[] profile) {
+		this.profile = profile;
+	}
+
+	@Override
+	public String toString() {
+		return "UserVO [id=" + id + ", password=" + password + ", email=" + email + ", nickname="
+				+ nickname + ", profile=" + Arrays.toString(profile) + "]";
+	}
 
 	
 }

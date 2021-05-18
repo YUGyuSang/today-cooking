@@ -1,4 +1,4 @@
-package com.myspring.today.search;
+package com.myspring.view.search;
 
 import java.net.URLEncoder;
 import java.util.ArrayList;

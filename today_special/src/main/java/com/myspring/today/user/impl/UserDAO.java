@@ -1,5 +1,6 @@
 package com.myspring.today.user.impl;
 
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,4 +21,10 @@ public class UserDAO {
 	public int login(UserVO vo) {
 		return mybatis.selectOne("UserDAO.login", vo);
 	}
+
+	//회원정보 가져오기
+	public UserVO getUser(String ID) {
+		return mybatis.selectOne("UserDAO.getUser", ID);
+	}
+	
 }

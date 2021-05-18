@@ -4,10 +4,11 @@
 	String header_file;
     String login_check=(String)session.getAttribute("loginId");
     if(login_check!=null){
-        header_file="afterheader.jsp";
+        header_file="afterHeader.jsp";
      }else{
     	 header_file="header.jsp";
      }
+    
 %>
 <!DOCTYPE html>
 <html>
@@ -22,7 +23,6 @@
 			<jsp:include page="<%=header_file %>" />
 		</div>
 	</div>
-	
 <div id="continer">
         <div class="slider">
             <input type="radio" name="slide" id="slide1" checked>

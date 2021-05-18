@@ -1,10 +1,10 @@
-package com.myspring.today.search;
+package com.myspring.view.search;
 
-public class YoutubeVO {
+public class NaverVO {
 	private String title;
 	private String thumbnailUrl;
 	private String url;
-
+	
 	public String getTitle() {
 		return title;
 	}
@@ -34,4 +34,5 @@ public class YoutubeVO {
 		return "YoutubeVO [title=" + title + ", thumbnailUrl="
 				+ thumbnailUrl + ", url=" + url + "]";
 	}
+
 }

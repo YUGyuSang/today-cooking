@@ -17,7 +17,7 @@
             </div>
         </div>
     </header> 
-    <form action="insertUser.do" method="post">
+    <form action="insertUser.do" method="post" enctype="multipart/form-data">
 	    <div id="container">
 	        <div id="signtext">
 	            <h1>회원가입</h1>
@@ -38,7 +38,7 @@
 	            <input type="text" name="nickname" value="" placeholder="닉네임">
 	        </div>
 	        <div class="inputs">
-	            <input type="file" name="profile">
+	            <input type="file" name="bf_profile">
 	        </div>
 	        <div id="signupbtn">
 	            <button>완료</button>

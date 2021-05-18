@@ -22,11 +22,11 @@
             </div>
           
             <div class="dropdown">
-                <button class="dropbtn">
+                <button class="dropbtn" style="background: url(profileView.do); background-size: cover;">
                     <!--드롭버튼--> 
                 </button>
                 <div class="dropdown-content">
-                    <a href="./myPage.html">마이페이지</a>
+                    <a href="getUser.do">마이페이지</a>
                     <a href="#">북마크</a>
                     <a href="#">로그아웃</a>
                 </div>

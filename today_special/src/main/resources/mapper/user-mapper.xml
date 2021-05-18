@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="UserDAO">
+	<resultMap id="getUser" type="user">
+		<id property="id" column="ID" />
+		<result property="password" column="PASSWORD" />
+		<result property="email" column="EMAIL" />
+		<result property="nickname" column="NICKNAME" />
+		<result property="profile" column="profile" jdbcType="BLOB" javaType="_byte[]" />
+	</resultMap>
 	<insert id="insertUser" parameterType="user">
 		INSERT INTO USER(ID,
-		PASSWORD, EMAIL, NICKNAME)
-		VALUES(#{id},#{password},#{email},#{nickname})
+		PASSWORD, EMAIL, NICKNAME,PROFILE)
+		VALUES(#{id},#{password},#{email},#{nickname},#{profile})
 	</insert>
 	<select id="login" parameterType="user" resultType="int">
 		SELECT
@@ -12,5 +19,12 @@
 		FROM USER
 		WHERE ID = #{id}
 		AND PASSWORD = #{password}
+	</select>
+	<select id="getUser" parameterType="String" resultType="user">
+		SELECT
+		ID,
+		PASSWORD,EMAIL,NICKNAME,PROFILE
+		FROM USER
+		WHERE ID =#{id}
 	</select>
 </mapper>
