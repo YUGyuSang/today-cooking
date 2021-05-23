@@ -27,8 +27,8 @@
                 </button>
                 <div class="dropdown-content">
                     <a href="getUser.do">마이페이지</a>
-                    <a href="#">북마크</a>
-                    <a href="#">로그아웃</a>
+                    <a href="getBookmarkList.do">북마크</a>
+                    <a href="logout.do">로그아웃</a>
                 </div>
             </div>
             <span><a href="#"><i class="fas fa-pen"></i></a></span>
