@@ -18,9 +18,10 @@ public class SearchController {
 	
 	@RequestMapping(value = "/getSearchResult.do")
 	public ModelAndView getSearchResult(@RequestParam("searchKeyword") String searchKeyword,ModelAndView mv) throws UnsupportedEncodingException {
-		//List<YoutubeVO> YoutubeList = youtube.getYoutubeList(searchKeyword);
+		List<YoutubeVO> YoutubeList = youtube.getYoutubeList(searchKeyword);
 		List<NaverVO> NaverList = naver.getNaverList(searchKeyword);
-		//mv.addObject("YoutubeList", YoutubeList);
+		mv.addObject("searchKeyword",searchKeyword);
+		mv.addObject("YoutubeList", YoutubeList);
 		mv.addObject("NaverList", NaverList);
 		mv.setViewName("getRecipeList.jsp");
 		return mv;
