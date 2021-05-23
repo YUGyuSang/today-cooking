@@ -1,0 +1,124 @@
+@charset "UTF-8";
+*{
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+#continer{
+    width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+h1{
+    margin-bottom: 20px;
+}
+
+
+
+#search_table{
+    border: 3px solid gray;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    padding: 30px;
+}
+
+#search_table tr td a>img{
+    width: 80%;
+    height: 100px;
+    
+}
+
+#search_table{
+    text-align: left;
+}
+
+.getspan{
+    font-weight: 900;
+    font-size:16px;
+    padding:0;
+}
+
+b{
+    color: #9BBC00;
+}
+
+
+#Youtube_list{
+    text-align: left;
+    margin-top: 40px;
+}
+
+#Youtube_list #you>img{
+    position: relative;
+    top: 20px;
+    margin-right: 10px;
+    width: 64px;
+    height: 64px;
+}
+
+#Youtube_list .youico{
+    padding-right: 70px;
+    vertical-align: bottom;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    
+}
+
+hr{
+    border: 2px solid gray;
+}
+
+.youtube_p,.naver_p{
+    font-size: 20px;
+    font-weight: 900;
+    width: 100%;
+
+}
+
+
+
+#Naver_list{
+    text-align: left;
+    margin-top: 100px;
+}
+
+#Naver_list #naver>img{
+    position: relative;
+    top: 20px;
+    margin-right: 10px;
+    width: 64px;
+    height: 64px;
+}
+
+#Naver_list .naverico{
+    width: 100px;
+    height: 100px;
+    padding-right: 70px;
+}
+
+#continer button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#naver_table .t2{
+    width: 80%;
+}
+#youtube_table .t2{
+    width: 80%;
+}
+button >img{
+    width: 64px;
+    height: 64px;
+}
+

@@ -17,7 +17,7 @@
                 <div id=litext class="main1">
                     <div id="main">
                         <div class="rightlogo">
-                            <img src="./img/logo.png" alt="로고">
+                            <img id="footerimg"src="./img/logo.png" alt="로고">
                         </div>
                         <div id="max">
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.Temporibus ex incidunt iusto, ratione accusantium iure cupiditate consequatur doloribus iste perferendis aperiam amet ea impedit aut sequi explicabo officiatempore omnis?</p>

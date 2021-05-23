@@ -14,7 +14,7 @@
     <form action="getSearchResult.do" method="post">
         <div id="container" class="warp">
             <div id="imger">
-                <img src="./img/logo.png" alt="이미지">
+                <img id="logo" src="./img/logo.png" alt="이미지">
             </div>
             <div id="srarch">
                 <input class="srarchinput" type="search" name="searchKeyword">
@@ -31,7 +31,7 @@
                     <a href="logout.do">로그아웃</a>
                 </div>
             </div>
-            <span><a href="#"><i class="fas fa-pen"></i></a></span>
+            <span id="headerspan"><a href="#"><i class="fas fa-pen"></i></a></span>
             
         </div>
         

@@ -11,6 +11,7 @@ request.setCharacterEncoding("utf-8");
 <title>Insert title here</title>
 </head>
 <body>
+
 <h1>Youtube결과</h1>
 	<table border="1" cellpadding="0" cellspacing="0" width="700">
 		<c:forEach items="${YoutubeList }" var="youtube">
