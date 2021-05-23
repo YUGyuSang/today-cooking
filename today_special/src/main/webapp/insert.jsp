@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,17 +8,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>레시피</title>
-    <link rel="stylesheet" href="./css/register.css" type="text/css">
+    <link rel="stylesheet" href="./css/insert.css" type="text/css">
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
 <body>
-
+    <div id="wrap">
+		<div id="header">
+			<jsp:include page="afterHeader.jsp" />
+		</div>
+	</div>
     <form action="">
     <div id="continer">
         <h1>레시피 등록</h1>
         <section id="t1">
             <div id="meun1">
-           <h3>레시피 제목</h3> <input type="text" placeholder="예)얼큰한 순대국 만들기">
+           <h3>레시피 제목</h3> <input class="meun1_input" type="text" placeholder="예)얼큰한 순대국 만들기">
             </div>
             <div id="meun2">
            <h3>요리소개</h3>
@@ -57,24 +62,29 @@
         <section id="t2">
             <h3>재료</h3>
             <div class="material1">
-                <input type="text" placeholder="예)고기">
-                <input type="text" placeholder="예)100g">
+                <input class="mater_input" type="text" placeholder="예)고기">
+                <input class="mater_input" type="text" placeholder="예)100g">
+                <button>삭제</button>
             </div>
             <div class="material1" >
-                <input type="text">
-                <input type="text">
+                <input class="mater_input" type="text">
+                <input class="mater_input" type="text">
+                <button>삭제</button>
             </div>
             <div class="material1" >
-                <input type="text">
-                <input type="text">
+                <input class="mater_input" type="text">
+                <input class="mater_input" type="text">
+                <button>삭제</button>
             </div>
             <div class="material1" >
-                <input type="text">
-                <input type="text">
+                <input class="mater_input" type="text">
+                <input class="mater_input" type="text">
+                <button>삭제</button>
             </div>
             <div class="material1" >
-                <input type="text">
-                <input type="text">
+                <input class="mater_input" type="text">
+                <input class="mater_input" type="text">
+                <button>삭제</button>
             </div>
             <div id="material1plus">
                 <button><i class="fas fa-plus"></i></button>
@@ -83,11 +93,24 @@
 
         <section id="t3">
             <h3>요리순서</h3>
-            <div>
+            <div class="foodlist">
                 <span>step1</span>
+                <textarea name="" id="" cols="30" rows="10" placeholder="예)소고기는 기름기 때어내고 적당한 크기로 썰어주세요."></textarea>
+                <button>삭제</button>
+            </div>
+            <div class="foodlist">
+                <span>step2</span>
+                <textarea name="" id="" cols="30" rows="10" placeholder="예)소고기는 기름기 때어내고 적당한 크기로 썰어주세요."></textarea>
+                <button>삭제</button>
+            </div>
+            <div id="material1plus">
+                <button><i class="fas fa-plus"></i></button>
             </div>
         </section>
     </div>
     </form>
+    <div id="footer">
+			<jsp:include page="footer.jsp" />
+	</div>
 </body>
 </html>
