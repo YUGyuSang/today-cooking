@@ -35,6 +35,34 @@ public class UserController {
 		return "login.jsp";
 	}
 
+	// 회원정보 get
+	@RequestMapping("getUser.do")
+	public ModelAndView getUser(HttpSession session, ModelAndView mv) {
+		String loginId = (String) session.getAttribute("loginId");
+		mv.addObject("user", userDAO.getUser(loginId));
+		mv.setViewName("myPage.jsp");
+		return mv;
+	}
+
+	// 이미지 출력
+	@RequestMapping("/profileView.do")
+	public ResponseEntity<byte[]> profileView(HttpSession session, HttpServletRequest request)
+			throws IOException {
+		try {
+			String loginId = (String) session.getAttribute("loginId");
+			UserVO user = userDAO.getUser(loginId);
+			HttpHeaders header = new HttpHeaders();
+			header.setContentType(MediaType.IMAGE_PNG);
+			ResponseEntity<byte[]> ret = new ResponseEntity<>(user.getProfile(), header,
+					HttpStatus.OK);
+			return ret;
+		} catch (Exception e) {
+
+		}
+		return null;
+
+	}
+
 	// 로그인
 	@RequestMapping("/login.do")
 	public String login(UserVO vo, HttpSession session) {
@@ -48,31 +76,10 @@ public class UserController {
 		} else
 			return "login.jsp";
 	}
-	
-	// 회원정보 get
-	@RequestMapping("getUser.do")
-	public ModelAndView getUser(HttpSession session,ModelAndView mv) {
-		String loginId= (String) session.getAttribute("loginId");
-		mv.addObject("user", userDAO.getUser(loginId));
-		mv.setViewName("myPage.jsp");
-		return mv;
+	//로그아웃
+	@RequestMapping("/logout.do")
+	public String logout(HttpSession session) {
+		session.removeAttribute("loginId");
+		return "index.jsp";
 	}
-	
-	// 이미지 출력
-	@RequestMapping("/profileView.do")
-	public ResponseEntity<byte[]> profileView(HttpSession session,HttpServletRequest request) throws IOException{
-		try {
-			String loginId= (String) session.getAttribute("loginId");
-			UserVO user=userDAO.getUser(loginId);
-			HttpHeaders header=new HttpHeaders();
-			header.setContentType(MediaType.IMAGE_PNG);
-			ResponseEntity<byte[]> ret=new ResponseEntity<>(user.getProfile(),header,HttpStatus.OK);
-			return ret;
-		}catch(Exception e) {
-			
-		}
-		return null;
-		
-	}
-
 }
