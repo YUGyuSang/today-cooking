@@ -18,7 +18,7 @@
             </div>
             <div id="srarch">
                 <input class="srarchinput" type="search" name="searchKeyword">
-                <button class="srarch"><i class="fas fa-search"></i></a>
+                <button class="srarch"><i class="fas fa-search"></i></button>
             </div>
           
             <div class="dropdown">
@@ -39,10 +39,10 @@
                 <div id="menu_var" class="wap">
                     <nav>
                         <ul>
-                            <li><a href="#">추천</li></a>
-                            <li><a href="#">랭킹</li></a>
-                            <li><a href="#">상황별</li></a>
-                            <li><a href="#">재료별</li></a>
+                            <li><a href="#">추천</a></li>
+                            <li><a href="#">랭킹</a></li>
+                            <li><a href="#">상황별</a></li>
+                            <li><a href="#">재료별</a></li>
                         </ul>
                     </nav>
                 </div>
