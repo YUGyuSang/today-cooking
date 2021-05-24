@@ -76,12 +76,12 @@ li{
     margin-top: 15px;
 }
 
-li a{
+li .after_a{
     color: #fff;
     font-weight: 900;
 }
 
-li:hover{
+nav ul li:hover{
     background-color:rgb(18, 211, 169);
     border-radius: 4px;
 }

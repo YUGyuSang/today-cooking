@@ -39,10 +39,10 @@
                 <div id="menu_var" class="wap">
                     <nav>
                         <ul>
-                            <li><a href="#">추천</a></li>
-                            <li><a href="#">랭킹</a></li>
-                            <li><a href="#">상황별</a></li>
-                            <li><a href="#">재료별</a></li>
+                            <li class="after_a"><a href="#">추천</a></li>
+                            <li class="after_a"><a href="#">랭킹</a></li>
+                            <li class="after_a"><a href="#">상황별</a></li>
+                            <li class="after_a"><a href="#">재료별</a></li>
                         </ul>
                     </nav>
                 </div>

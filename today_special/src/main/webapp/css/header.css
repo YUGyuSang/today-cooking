@@ -68,12 +68,12 @@ li{
     margin-top: 15px;
 }
 
-li a{
+.menu a{
     color: #fff;
     font-weight: 900;
 }
 
-li:hover{
+.menu:hover{
     background-color:rgb(18, 211, 169);
     border-radius: 4px;
 }
