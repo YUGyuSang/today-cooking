@@ -1,10 +1,10 @@
 package com.myspring.today.recipe;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import com.myspring.today.user.UserVO;
 
 @Repository
 public class RecipeDAO {
@@ -18,10 +18,12 @@ public class RecipeDAO {
 	public void insertRecipe(RecipeVO vo) {
 		mybatis.insert("RecipeDAO.insertRecipe", vo);
 	}
+	// 레시피 아이디로 레시피 리턴
 	public RecipeVO getRecipe(int recipeId) {
 		return mybatis.selectOne("RecipeDAO.getRecipe",recipeId);
 	}
-	public RecipeVO getNewRecipe() {
-		return mybatis.selectOne("RecipeDAO.getNewRecipe");
+	//키워드로 레시피 검색시
+	public List<RecipeVO> getKeywordRecipe(String searchKeyword) {
+		return mybatis.selectList("RecipeDAO.getKeywordRecipe",searchKeyword);
 	}
 }

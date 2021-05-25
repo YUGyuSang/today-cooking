@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="RecipeDAO">
+	<!-- 레시피 등록 전 레시피 아이디 찾기 -->
 	<select id="getMaxRecipeId" resultType="int">
 		SELECT
 		max(RECIPE_ID)
 		FROM
 		RECIPE
 	</select>
+	<!-- 레시피 등록 -->
 	<insert id="insertRecipe" parameterType="recipe">
 		INSERT INTO
 		RECIPE(RECIPE_ID,RECIPE_TITLE,RECIPE_CONTENT,RECIPE_SITUATION,RECIPE_INGREDIENT,RECIPE_THUMBNAIL,USER_ID)
 		VALUES(#{recipeId},#{recipeTitle},#{recipeContent},#{recipeSituation},#{recipeIngredient},#{recipeThumbnail},#{userId})
 	</insert>
+	<!-- 레시피 아이디로 레시피 겟 -->
 	<select id="getRecipe" parameterType="int" resultType="recipe">
 		SELECT
 		*
 		FROM RECIPE
 		WHERE RECIPE_ID = #{recipeId}
 	</select>
-	<select id="getNewRecipe" resultType="recipe">
+	<!-- 키워드로 레시피 검색 -->
+	<select id="getKeywordRecipe" parameterType="String" resultType="list">
 		SELECT
-		RECIPE_ID,MAX(RECIPE_DATE)
+		*
 		FROM RECIPE
+		WHERE RECIPE_TITLE LIKE '%'||#{searchKeyword}||'%'
 	</select>
 </mapper>

@@ -41,7 +41,7 @@
                         <ul>
                             <li class="after_a"><a href="#">추천</a></li>
                             <li class="after_a"><a href="#">랭킹</a></li>
-                            <li class="after_a"><a href="#">상황별</a></li>
+                            <li class="after_a"><a href="getSituationList.jsp">상황별</a></li>
                             <li class="after_a"><a href="#">재료별</a></li>
                         </ul>
                     </nav>

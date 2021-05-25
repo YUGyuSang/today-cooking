@@ -41,9 +41,11 @@ public class RecipeController {
 		mv.setViewName("insertRecipe.jsp");
 		return mv;
 	}
-	// 레시피 등록, 리스트 안 쓴 거
+	
+	// 레시피 등록
 	@RequestMapping("/insertRecipe.do")
-	public String insertRecipe(RecipeVO revo,@RequestParam("ingredientName") String[] ingredientName,
+	public String insertRecipe(RecipeVO revo,
+			@RequestParam("ingredientName") String[] ingredientName,
 			@RequestParam("ingredientAmount") String[] ingredientAmount,
 			@RequestParam("orderContent") String[] orderContent,
 			@RequestParam("recipeThumb") MultipartFile img) throws IOException {
