@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.myspring.today.user.UserDAO;
 import com.myspring.today.user.UserVO;
-import com.myspring.today.user.impl.UserDAO;
 
 @Controller
 public class UserController {
@@ -44,7 +44,7 @@ public class UserController {
 		return mv;
 	}
 
-	// 이미지 출력
+	// 프로필 출력
 	@RequestMapping("/profileView.do")
 	public ResponseEntity<byte[]> profileView(HttpSession session, HttpServletRequest request)
 			throws IOException {
@@ -60,7 +60,6 @@ public class UserController {
 
 		}
 		return null;
-
 	}
 
 	// 로그인

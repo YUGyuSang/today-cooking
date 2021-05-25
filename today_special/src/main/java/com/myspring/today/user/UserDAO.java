@@ -1,11 +1,9 @@
-package com.myspring.today.user.impl;
+package com.myspring.today.user;
 
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import com.myspring.today.user.UserVO;
 
 @Repository
 public class UserDAO {

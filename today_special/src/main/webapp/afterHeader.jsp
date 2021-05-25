@@ -25,13 +25,13 @@
                 <button class="dropbtn" style="background: url(profileView.do); background-size: cover;">
                     <!--드롭버튼--> 
                 </button>
-                <div class="dropdown-content">
+                <div class="dropdown-content" style="z-index:2;">
                     <a href="getUser.do">마이페이지</a>
                     <a href="getBookmarkList.do">북마크</a>
                     <a href="logout.do">로그아웃</a>
                 </div>
             </div>
-            <span id="headerspan"><a href="#"><i class="fas fa-pen"></i></a></span>
+            <span id="headerspan"><a href="getMaxRecipeId.do"><i class="fas fa-pen"></i></a></span>
             
         </div>
         

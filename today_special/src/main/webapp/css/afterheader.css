@@ -100,7 +100,8 @@ li:hover{
 
 .dropdown{
     display: inline;
-    padding: 20px;   
+    padding: 20px;  
+    z-index: 2; 
 }
 
 /* #logmig img{

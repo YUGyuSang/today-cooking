@@ -35,7 +35,7 @@
 	            <input type="email" name="email" placeholder="이메일">
 	        </div>
 	        <div class="inputs">
-	            <input type="text" name="nickname" value="" placeholder="닉네임">
+	            <input type="text" name="nickname" placeholder="닉네임">
 	        </div>
 	        <div class="inputs">
 	            <input type="file" name="bf_profile">

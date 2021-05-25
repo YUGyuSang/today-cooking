@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="RecipeDAO">
+	<select id="getMaxRecipeId" resultType="int">
+		SELECT
+		max(RECIPE_ID)
+		FROM
+		RECIPE
+	</select>
+	<insert id="insertRecipe" parameterType="recipe">
+		INSERT INTO
+		RECIPE(RECIPE_ID,RECIPE_TITLE,RECIPE_CONTENT,RECIPE_SITUATION,RECIPE_INGREDIENT,RECIPE_THUMBNAIL,USER_ID)
+		VALUES(#{recipeId},#{recipeTitle},#{recipeContent},#{recipeSituation},#{recipeIngredient},#{recipeThumbnail},#{userId})
+	</insert>
+	<select id="getRecipe" parameterType="int" resultType="recipe">
+		SELECT
+		*
+		FROM RECIPE
+		WHERE RECIPE_ID = #{recipeId}
+	</select>
+	<select id="getNewRecipe" resultType="recipe">
+		SELECT
+		RECIPE_ID,MAX(RECIPE_DATE)
+		FROM RECIPE
+	</select>
+</mapper>

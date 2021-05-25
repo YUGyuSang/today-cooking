@@ -21,7 +21,7 @@
             </div>
           
             <span><a href="login.jsp"><i class="fas fa-user"></i></a></span>
-            <span><a href="#"><i class="fas fa-pen"></i></a></span>
+            <span><a href="login.jsp"><i class="fas fa-pen"></i></a></span>
             
         </div>
         
