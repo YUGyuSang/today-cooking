@@ -30,8 +30,13 @@ public class RecipeDAO {
 		return mybatis.selectList("RecipeDAO.getKeywordRecipe", vo);
 	}
 
-	// 키워드로 레시피 검색시
-	public List<RecipeVO> getRecipeImageList(RecipeVO vo) {
-		return mybatis.selectList("RecipeDAO.getRecipeImageList", vo);
+	// 상황별 레시피 검색시
+	public List<RecipeVO> getSituationRecipe(String recipeSituation) {
+		return mybatis.selectList("RecipeDAO.getSituationRecipe", recipeSituation);
+	}
+
+	// 재료별 레시피 검색시
+	public List<RecipeVO> getIngredientRecipe(String recipeIngredient) {
+		return mybatis.selectList("RecipeDAO.getIngredientRecipe", recipeIngredient);
 	}
 }

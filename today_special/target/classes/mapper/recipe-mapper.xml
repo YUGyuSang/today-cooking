@@ -39,4 +39,16 @@
 		FROM RECIPE
 		WHERE RECIPE_TITLE LIKE CONCAT('%',#{searchKeyword},'%')
 	</select>
+	<!-- 상황별 레시피 검색 -->
+	<select id="getSituationRecipe" parameterType="String" resultMap="recipeResult">
+		SELECT *
+		FROM RECIPE
+		WHERE RECIPE_SITUATION = #{recipeSituation}
+	</select>
+	<!-- 재료별 레시피 검색 -->
+	<select id="getIngredientRecipe" parameterType="String" resultMap="recipeResult">
+		SELECT *
+		FROM RECIPE
+		WHERE RECIPE_INGREDIENT = #{recipeIngredient}
+	</select>
 </mapper>

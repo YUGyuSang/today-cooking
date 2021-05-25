@@ -29,7 +29,7 @@
 		<property name="configLocation" value="classpath:/sql-map-config.xml"/>
         <property name="mapperLocations" value="classpath:/mapper/*.xml"/>
 	</bean>
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 		<constructor-arg ref="sqlSessionFactory" />
 	</bean>
 	

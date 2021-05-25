@@ -35,8 +35,8 @@ public class RecipeController {
 		mv.setViewName("insertRecipe.jsp");
 		return mv;
 	}
-//	
-//	// 레시피 등록
+	
+	// 레시피 등록
 	@RequestMapping("/insertRecipe.do")
 	public String insertRecipe(RecipeVO revo,
 			@RequestParam("ingredientName") String[] ingredientName,
