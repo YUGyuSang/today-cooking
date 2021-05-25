@@ -3,16 +3,22 @@ package com.myspring.today.recipe;
 import java.sql.Date;
 import java.util.Arrays;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class RecipeVO {
 	private int recipeId;
 	private String recipeTitle; //제목
 	private String recipeContent; //간단 설명
 	private String recipeSituation; //상황
 	private String recipeIngredient; //재료
-	private byte[] recipeThumbnail; //썸네일
+	private String recipeThumbnail; //썸네일
 	private int bookmarkCount;
 	private Date recipeDate;
 	private String userId;
+	
+	//검색을 위한 변수
+	private String searchKeyword;
+	
 	public int getRecipeId() {
 		return recipeId;
 	}
@@ -43,10 +49,11 @@ public class RecipeVO {
 	public void setRecipeIngredient(String recipeIngredient) {
 		this.recipeIngredient = recipeIngredient;
 	}
-	public byte[] getRecipeThumbnail() {
+
+	public String getRecipeThumbnail() {
 		return recipeThumbnail;
 	}
-	public void setRecipeThumbnail(byte[] recipeThumbnail) {
+	public void setRecipeThumbnail(String recipeThumbnail) {
 		this.recipeThumbnail = recipeThumbnail;
 	}
 	public int getBookmarkCount() {
@@ -66,6 +73,13 @@ public class RecipeVO {
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+	
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
 	}
 	@Override
 	public String toString() {

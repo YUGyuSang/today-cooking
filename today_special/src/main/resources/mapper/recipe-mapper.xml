@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="RecipeDAO">
+	<resultMap id="recipeResult" type="recipe">
+		<id property="recipeId" column="RECIPE_ID" />
+		<result property="recipeTitle" column="RECIPE_TITLE" />
+		<result property="recipeContent" column="RECIPE_CONTENT" />
+		<result property="recipeSituation" column="RECIPE_SITUATION" />
+		<result property="recipeIngredient" column="RECIPE_INGREDIENT" />
+		<result property="recipeThumbnail" column="RECIPE_THUMBNAIL" />
+		<result property="userId" column="USER_ID" />
+		<result property="recipeDate" column="RECIPE_DATE" />
+		<result property="bookmarkCount" column="BOOKMARK_COUNT" />
+	</resultMap>
+	<resultMap id="recipeImageResult" type="recipe">
+		<result property="userId" column="USER_ID" />
+	</resultMap>
 	<!-- 레시피 등록 전 레시피 아이디 찾기 -->
 	<select id="getMaxRecipeId" resultType="int">
-		SELECT
-		max(RECIPE_ID)
-		FROM
-		RECIPE
+		SELECT max(RECIPE_ID)
+		FROM RECIPE
 	</select>
 	<!-- 레시피 등록 -->
 	<insert id="insertRecipe" parameterType="recipe">
@@ -15,17 +27,16 @@
 		VALUES(#{recipeId},#{recipeTitle},#{recipeContent},#{recipeSituation},#{recipeIngredient},#{recipeThumbnail},#{userId})
 	</insert>
 	<!-- 레시피 아이디로 레시피 겟 -->
-	<select id="getRecipe" parameterType="int" resultType="recipe">
-		SELECT
-		*
+	<select id="getRecipe" parameterType="int" resultMap="recipeResult">
+		SELECT *
 		FROM RECIPE
 		WHERE RECIPE_ID = #{recipeId}
 	</select>
+	
 	<!-- 키워드로 레시피 검색 -->
-	<select id="getKeywordRecipe" parameterType="String" resultType="list">
-		SELECT
-		*
+	<select id="getKeywordRecipe" resultMap="recipeResult">
+		SELECT *
 		FROM RECIPE
-		WHERE RECIPE_TITLE LIKE '%'||#{searchKeyword}||'%'
+		WHERE RECIPE_TITLE LIKE CONCAT('%',#{searchKeyword},'%')
 	</select>
 </mapper>
