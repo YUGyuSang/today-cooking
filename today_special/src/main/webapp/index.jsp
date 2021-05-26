@@ -43,7 +43,7 @@
         </div>
 
         <section id="menus">
-            <div id="menu1" style="background: url(thumbnailView.do?recipeId='getNewRecipe.do') no-repeat center;"><a class="maina" href="#">오늘 베스트 요리</a></div>
+            <div id="menu1"><a class="maina" href="#">오늘 베스트 요리</a></div>
             <div id="menu2"><a class="maina" href="#">인기 레시피</a></div>
             <div id="menu3"><a class="maina" href="#">오늘 신상 요리</a></div>
             <div id="menu4"><a class="maina" href="#">주간 베스트 요리</a></div>

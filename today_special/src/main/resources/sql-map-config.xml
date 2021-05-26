@@ -7,7 +7,7 @@
 	<typeAliases>
 		<typeAlias alias="user" type="com.myspring.today.user.UserVO" />
 		<typeAlias alias="recipe" type="com.myspring.today.recipe.RecipeVO" />
-		<typeAlias alias="ingredient" type="com.myspring.today.ingredient.IngredientVOList" />
-		<typeAlias alias="order" type="com.myspring.today.order.OrderVOList" />
+		<typeAlias alias="ingredient" type="com.myspring.today.ingredient.IngredientVO" />
+		<typeAlias alias="order" type="com.myspring.today.order.OrderVO" />
 	</typeAliases>	
 </configuration>

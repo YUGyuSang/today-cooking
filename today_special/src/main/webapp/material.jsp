@@ -47,10 +47,7 @@ if (login_check != null) {
                 <hr>
                 <div id="te">
                 <div class="recipebox">
-                    <div class="boxs"><img src="./img/naver.png" alt=""><p>음식명: <br>가격: </p></div>
-                </div>
-                <div class="recipebox">
-                    <div class="boxs"><img src="./img/naver.png" alt=""><p>음식명: <br>가격: </p></div>
+                    <div class="boxs"><a href="#"><img src="./img/naver.png" alt=""><p>음식명: <br>가격: </p></a></div>
                 </div>
                 </div>
             </div>
