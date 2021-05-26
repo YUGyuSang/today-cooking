@@ -1,0 +1,65 @@
+@charset "UTF-8";
+*{
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+#continer{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+hr{
+    border: 2px solid gray;
+    background-color: gray;
+    margin-bottom: 20px;
+}
+
+.book_h1>img{
+    width: 30px;
+}
+
+.book_h1{
+    text-align: center;
+    margin-top: 30px;
+}
+
+td a>img{
+    width: 150px;
+    height: 100px;    
+}
+
+#book_table tr td{
+    display: inline-block;
+    margin-bottom: 20px;
+    width: 170px;
+}
+
+#book_table tr td{
+    margin-left: 20px;
+    text-align: center;
+}
+
+#book_table button{
+    background-color: #9BBC00;
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 900;
+    border-radius: 10px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+#book_table p{
+    text-align: left;
+    font-size: 18px;
+    font-weight: 900;
+    margin-left: 9px;
+    overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap;
+}
