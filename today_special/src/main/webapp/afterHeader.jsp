@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>afterheader</title>
-    <link href="css/afterheader.css" rel="stylesheet" type="text/css" />
+    <link href="css/afterheader.css?after" rel="stylesheet" type="text/css" />
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
 <body>
@@ -27,6 +27,7 @@
                 </button>
                 <div class="dropdown-content" style="z-index:2;">
                     <a href="getUser.do">마이페이지</a>
+                    <a href="getUser.do">내가 쓴 글</a>
                     <a href="getBookmarkList.do">북마크</a>
                     <a href="logout.do">로그아웃</a>
                 </div>
@@ -42,7 +43,7 @@
                             <li class="after_a"><a href="#">추천</a></li>
                             <li class="after_a"><a href="#">랭킹</a></li>
                             <li class="after_a"><a href="getSituationList.jsp">상황별</a></li>
-                            <li class="after_a"><a href="#">재료별</a></li>
+                            <li class="after_a"><a href="getIngredientList.jsp">재료별</a></li>
                         </ul>
                     </nav>
                 </div>

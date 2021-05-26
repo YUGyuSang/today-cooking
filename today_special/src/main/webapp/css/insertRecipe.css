@@ -209,4 +209,23 @@ select{
     top: -13px;
 }
 
+#ok button{
+    background-color: #9BBC00;
+    border: 1px solid #fff;
+    font-size: 20px;
+    font-weight: 900;
+    color: #fff;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#ok{
+    text-align: center;
+    position: relative;
+    right: 120px;
+    margin-top: 20px;
+}
+
 

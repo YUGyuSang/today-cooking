@@ -76,7 +76,7 @@ li{
     margin-top: 15px;
 }
 
-li .after_a{
+.after_a a{
     color: #fff;
     font-weight: 900;
 }

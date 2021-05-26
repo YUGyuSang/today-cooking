@@ -1,4 +1,3 @@
-@charset "UTF-8";
 *{
     padding: 0;
     margin: 0;
@@ -20,30 +19,27 @@ h1{
     margin-bottom: 20px;
 }
 
-
+#search_table tr td{
+    width: 230px;
+    display: inline-block;
+    margin-bottom: 90px;
+}
 
 #search_table{
-    border: 3px solid gray;
-    border-bottom: none;
-    border-left: none;
-    border-right: none;
     padding: 30px;
 }
 
-#search_table tr td a>img{
-    width: 80%;
-    height: 100px;
-    
+td a>img{
+    width: 150px;
+    height: 100px;    
 }
 
 #search_table{
     text-align: left;
 }
 
-.getspan{
+span{
     font-weight: 900;
-    font-size:16px;
-    padding:0;
 }
 
 b{
@@ -61,26 +57,28 @@ b{
     top: 20px;
     margin-right: 10px;
     width: 64px;
-    height: 64px;
+    height: 64;
 }
 
 #Youtube_list .youico{
     padding-right: 70px;
     vertical-align: bottom;
     position: relative;
-    width: 170px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     
 }
 
 hr{
     border: 2px solid gray;
+    background-color: gray;
 }
 
 .youtube_p,.naver_p{
     font-size: 20px;
     font-weight: 900;
     width: 100%;
+    
 
 }
 
@@ -95,20 +93,23 @@ hr{
     position: relative;
     top: 20px;
     margin-right: 10px;
-    width: 64px;
-    height: 64px;
 }
 
 #Naver_list .naverico{
-    width: 170px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     padding-right: 70px;
 }
 
 #continer button{
-    background: none;
+    background-color: #9BBC00;
     border: none;
     cursor: pointer;
+    font-size: 17px;
+    font-weight: 900;
+    width: 50px;
+    border-radius: 20px;
+    color: #fff;
 }
 
 #naver_table .t2{
@@ -117,8 +118,7 @@ hr{
 #youtube_table .t2{
     width: 80%;
 }
-button >img{
-    width: 64px;
-    height: 64px;
-}
 
+#Naver_list img{
+    width: 60px;
+}

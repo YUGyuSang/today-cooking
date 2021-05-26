@@ -16,7 +16,7 @@ if (login_check != null) {
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./css/getRecipeList.css" type="text/css">
+<link rel="stylesheet" href="./css/getRecipeList.css?after" type="text/css">
 <title>레시피 검색 결과</title>
 </head>
 <body>
@@ -29,16 +29,18 @@ if (login_check != null) {
 		<div id="continer">
 			<div id="search_list">
 				<h1>"${searchKeyword }" 검색 결과</h1>
+				<hr>
 				<table id="search_table">
 					<tr>
 						<c:forEach items="${recipeList}" var="recipe">
-							<img src="/today_img/${recipe.recipeThumbnail }" style="width:150px">
+							
 							<form action="" method="post">
-								<td>
+								<td><a href="">
+								<img src="/today_img/${recipe.recipeThumbnail }">
 									<p class="search_p">
 
 										<span class="getspan">${recipe.recipeTitle}</span> <br> <b>작성자: </b> <span class="getspan">${recipe.userId}</span>
-									</p>
+									</p></a>
 								</td>
 							</form>
 						</c:forEach>
@@ -60,11 +62,7 @@ if (login_check != null) {
 								<td><a href=${youtube.url }><img class="youico" src="${youtube.thumbnailUrl }" alt=""></a></td>
 								<td class="t2"><a href=${youtube.url }><p class="youtube_p">${youtube.title }</a>
 									</p></td>
-								<td><div class="bookmark">
-										<button>
-											<img src="./img/bookmark.png" alt="">
-										</button>
-									</div></td>
+									<td><div class="bookmark"><button>추가</button></div></td>
 								<!-- <div class="bookmark"><a href=""><img src="./img/bookmark.png" alt=""></a></div> -->
 							</tr>
 						</form>
@@ -84,9 +82,7 @@ if (login_check != null) {
 								<td class="t1"><a href=${naver.url }><img class="naverico" src="${naver.thumbnailUrl }" alt=""></a></td>
 								<td class="t2"><a href=${naver.url }><p class="naver_p">${naver.title }</a>
 									</p></td>
-								<td class="t3"><button>
-										<img src="./img/bookmark.png" alt="">
-									</button></td>
+								<td class="t3"><button>추가</button></td>
 								<!-- <div class="bookmark"><a href=""><img src="./img/bookmark.png" alt=""></a></div> -->
 							</tr>
 						</form>

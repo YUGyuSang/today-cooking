@@ -1,0 +1,56 @@
+@charset "UTF-8";
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.boxs>a{
+    text-decoration: none;
+    color: #000;
+}
+
+#continer{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+hr{
+    border: 2px solid gray;
+}
+
+.recipebox {
+    display: inline-block;
+    margin: 20px;
+    font-size: 16px;
+    font-weight: 900;
+    box-sizing: border-box;
+    width: 15%;
+}
+
+.recipebox .boxs img{
+    width: 120px;
+    height: 110px;
+}
+
+#rank02{
+    margin-top: 50px;
+}
+
+#rank01{
+    margin-top: 30px;
+}
+
+.recipebox p{
+    overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 129px;
+}
+
+.recipebox .boxs{
+    width: 130px;
+    height: 180px;
+}
+
+.te{
+    width: 1100px;
+}

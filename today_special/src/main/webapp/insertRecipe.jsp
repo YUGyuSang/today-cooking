@@ -16,7 +16,7 @@ if (login_check != null) {
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>레시피</title>
-<link rel="stylesheet" href="./css/insertRecipe.css" type="text/css">
+<link rel="stylesheet" href="./css/insertRecipe.css?ver=1" type="text/css">
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
@@ -87,7 +87,7 @@ if (login_check != null) {
 					</p>
 				</div>
 				<div id="meun3">
-					<img class="thumb" src="#" alt="대표사진" style="width: 200px; height: 200px;">
+					<img class="thumb" style="width: 200px; height: 200px;">
 				</div>
 				<label class="input-file-button" for="input-file"> 업로드 </label> <input type="file" id="input-file" class="file"
 					style="display: none;" accept="image/*,.pdf" name="recipeThumb" />
@@ -96,20 +96,23 @@ if (login_check != null) {
 					<h3>카테고리</h3>
 					<select name="recipeSituation" id="">
 						<option value="상황별">상황별</option>
-						<option value="조무사">조무사</option>
-						<option value="무직">무직</option>
-						<option value="백엔드개발자">백엔드개발자</option>
-						<option value="야구선수">야구선수</option>
-						<option value="주부">주부</option>
-						<option value="농부">농부</option>
+						<option value="캠핑">캠핑</option>
+						<option value="술_안주">술 안주</option>
+						<option value="야식">야식</option>
+						<option value="간식">간식</option>
+						<option value="집들이">집들이</option>
+						<option value="스피드">스피드</option>
+						<option value="기타">기타</option>
 					</select> <select name="recipeIngredient" id="">
-						<option value="상황별">재료별</option>
-						<option value="조무사">조무사</option>
-						<option value="무직">무직</option>
-						<option value="백엔드개발자">백엔드개발자</option>
-						<option value="야구선수">야구선수</option>
-						<option value="주부">주부</option>
-						<option value="농부">농부</option>
+						<option value="재료별">재료별</option>
+						<option value="정육">정육</option>
+						<option value="수산">수산</option>
+						<option value="채소">채소</option>
+						<option value="계란">계란</option>
+						<option value="과일">과일</option>
+						<option value="면">면</option>
+						<option value="떡">떡</option>
+						<option value="기타">기타</option>
 					</select>
 				</div>
 
@@ -119,7 +122,7 @@ if (login_check != null) {
 					<div class="material1">
 						<input class="mater_input" type="text" placeholder="예)고기" name="ingredientName"> <input
 							class="mater_input" type="text" placeholder="예)100g" name="ingredientAmount">
-						<button type="button" onclick='remove_ingredient(this)'>삭제</button>
+<!-- 						<button type="button" onclick='remove_ingredient(this)'>삭제</button> -->
 					</div>
 				</section>
 			<div id="material1plus">
@@ -134,7 +137,7 @@ if (login_check != null) {
 				<div class="foodlist">
 					<span>step1</span> <input type=hidden name="orderNum" value="1">
 					<textarea cols="30" rows="10" placeholder="예)소고기는 기름기 때어내고 적당한 크기로 썰어주세요." name="orderContent"></textarea>
-					<button type="button" onclick="remove_order(this)">삭제</button>
+<!-- 					<button type="button" onclick="remove_order(this)">삭제</button> -->
 				</div>
 			</section>
 			<div id="material1plus">
