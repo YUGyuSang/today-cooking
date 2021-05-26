@@ -33,15 +33,12 @@ if (login_check != null) {
 				<table id="search_table">
 					<tr>
 						<c:forEach items="${recipeList}" var="recipe">
-							
 							<form action="" method="post">
-								<td><a href="">
-								<img src="/today_img/${recipe.recipeThumbnail }">
-									<p class="search_p">
-
-										<span class="getspan">${recipe.recipeTitle}</span> <br> <b>작성자: </b> <span class="getspan">${recipe.userId}</span>
-									</p></a>
-								</td>
+								<td><a href="getRecipe.do?recipeId=${recipe.recipeId} "> <img
+										src="/today_img/${recipe.recipeThumbnail }">
+										<p class="search_p">
+											<span class="getspan">${recipe.recipeTitle}</span> <br> <b>작성자: </b> <span class="getspan">${recipe.userId}</span>
+										</p></a></td>
 							</form>
 						</c:forEach>
 					</tr>
@@ -58,11 +55,15 @@ if (login_check != null) {
 
 					<c:forEach items="${YoutubeList }" var="youtube">
 						<form action="" method="post">
+							<input type="hidden" name="outerUrl" value=${youtube.url }> <input type="hidden" name="outerTitle"
+								value=${youtube.title }> <input type="hidden" name="outerThumbnail" value=${youtube.thumbnailUrl }>
 							<tr>
 								<td><a href=${youtube.url }><img class="youico" src="${youtube.thumbnailUrl }" alt=""></a></td>
 								<td class="t2"><a href=${youtube.url }><p class="youtube_p">${youtube.title }</a>
 									</p></td>
-									<td><div class="bookmark"><button>추가</button></div></td>
+								<td><div class="bookmark">
+										<button>추가</button>
+									</div></td>
 								<!-- <div class="bookmark"><a href=""><img src="./img/bookmark.png" alt=""></a></div> -->
 							</tr>
 						</form>
@@ -77,12 +78,16 @@ if (login_check != null) {
 				<hr>
 				<table id="naver_table">
 					<c:forEach items="${NaverList }" var="naver">
-						<form action="" method="post">
+						<form action="insertBookmarkOuter.do" method="get">
 							<tr>
+								<input type="hidden" name="outerUrl" value=${naver.url }>
+								<input type="hidden" name="outerTitle" value='${naver.title }'>
+								<input type="hidden" name="outerThumbnail" value=${naver.thumbnailUrl }>
 								<td class="t1"><a href=${naver.url }><img class="naverico" src="${naver.thumbnailUrl }" alt=""></a></td>
 								<td class="t2"><a href=${naver.url }><p class="naver_p">${naver.title }</a>
 									</p></td>
 								<td class="t3"><button>추가</button></td>
+<%-- 								<td class="t3"><button type="button"><a href="insertBookmarkOuter.do?outerUrl=${ naver.url}&outerTitle=${naver.title}&outerThumbnail=${naver.thumbnailUrl}">추가</a></button></td> --%>
 								<!-- <div class="bookmark"><a href=""><img src="./img/bookmark.png" alt=""></a></div> -->
 							</tr>
 						</form>

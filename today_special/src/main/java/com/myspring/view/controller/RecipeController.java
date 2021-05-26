@@ -2,6 +2,7 @@ package com.myspring.view.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,37 +36,60 @@ public class RecipeController {
 		mv.setViewName("insertRecipe.jsp");
 		return mv;
 	}
-	
+
 	// 레시피 등록
 	@RequestMapping("/insertRecipe.do")
-	public String insertRecipe(RecipeVO revo,
-			@RequestParam("ingredientName") String[] ingredientName,
+	public String insertRecipe(RecipeVO revo, @RequestParam("ingredientName") String[] ingredientName,
 			@RequestParam("ingredientAmount") String[] ingredientAmount,
-			@RequestParam("orderContent") String[] orderContent,
-			@RequestParam("recipeThumb") MultipartFile thumb) throws IOException {
-		if(!thumb.isEmpty()) {
+			@RequestParam("orderContent") String[] orderContent, @RequestParam("recipeThumb") MultipartFile thumb)
+			throws IOException {
+		if (!thumb.isEmpty()) {
 			UUID uuid = UUID.randomUUID();
-			String fileName=uuid+"_"+thumb.getOriginalFilename();
-			thumb.transferTo(new File("C:/spring_img/"+fileName));
+			String fileName = uuid + "_" + thumb.getOriginalFilename();
+			thumb.transferTo(new File("C:/spring_img/" + fileName));
 			revo.setRecipeThumbnail(fileName);
 		}
 		recipeDAO.insertRecipe(revo);
 		int i;
-		int recipeId=revo.getRecipeId();
-		for( i =0;i< ingredientName.length;i++) {
-			IngredientVO invo=new IngredientVO();
+		int recipeId = revo.getRecipeId();
+		for (i = 0; i < ingredientName.length; i++) {
+			IngredientVO invo = new IngredientVO();
 			invo.setIngredientName(ingredientName[i]);
 			invo.setIngredientAmount(ingredientAmount[i]);
 			invo.setRecipeId(recipeId);
 			ingredientDAO.insertIngredient(invo);
 		}
-		for( i =0;i< orderContent.length;i++) {
-			OrderVO orvo=new OrderVO();
-			orvo.setOrderNum(i+1);
+		for (i = 0; i < orderContent.length; i++) {
+			OrderVO orvo = new OrderVO();
+			orvo.setOrderNum(i + 1);
 			orvo.setOrderContent(orderContent[i]);
 			orvo.setRecipeId(recipeId);
 			orderDAO.insertOrder(orvo);
 		}
 		return "index.jsp";
+	}
+
+	// 레시피 글
+	@RequestMapping("/getRecipe.do")
+	public ModelAndView getRecipe(@RequestParam("recipeId") int recipeId,ModelAndView mv) {
+		RecipeVO recipe=recipeDAO.getRecipe(recipeId);
+		List<IngredientVO> ingredientList=ingredientDAO.getIngredientList(recipeId);
+		List<OrderVO> orderList=orderDAO.getOrderList(recipeId);
+		mv.addObject("recipe", recipe);
+		mv.addObject("ingredientList",ingredientList);
+		mv.addObject("orderList",orderList);
+		mv.setViewName("getRecipe.jsp");
+		return mv;
+	}
+	
+	// 랭킹
+	@RequestMapping("/getRankingList.do")
+	public ModelAndView getRankingList(ModelAndView mv) {
+		List<RecipeVO> todayList=recipeDAO.getTodayBest();
+		List<RecipeVO> weeklyList=recipeDAO.getWeeklyBest();
+		mv.addObject("todayList",todayList);
+		mv.addObject("weeklyList",weeklyList);
+		mv.setViewName("ranking.jsp");
+		return mv;
 	}
 }

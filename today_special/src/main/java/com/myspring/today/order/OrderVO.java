@@ -1,6 +1,5 @@
 package com.myspring.today.order;
 
-import java.util.List;
 
 public class OrderVO {
 	private int orderId;

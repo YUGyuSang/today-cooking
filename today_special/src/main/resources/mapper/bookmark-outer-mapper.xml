@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BookmarkOuterDAO">
+	<!-- 외부 북마크 등록 -->
+	<insert id="insertBookmarkOuter" parameterType="outer">
+		INSERT INTO
+		BOOKMARK_OUTER(OUTER_URL,OUTER_TITLE,OUTER_THUMBNAIL,USER_ID)
+		VALUES(
+		#{outerUrl},
+		#{outerTitle},
+		#{outerThumbnail},
+		#{userId}
+		)
+	</insert>
+</mapper>

@@ -3,11 +3,13 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>	
-	<!-- Alias 설정 <typeAlias alias="ingredient" type="com.myspring.today.ingredient.IngredientVO" />-->
+	<!-- Alias 설정-->
 	<typeAliases>
 		<typeAlias alias="user" type="com.myspring.today.user.UserVO" />
 		<typeAlias alias="recipe" type="com.myspring.today.recipe.RecipeVO" />
 		<typeAlias alias="ingredient" type="com.myspring.today.ingredient.IngredientVO" />
 		<typeAlias alias="order" type="com.myspring.today.order.OrderVO" />
+		<typeAlias alias="inner" type="com.myspring.today.bookmark.BookmarkInnerVO" />
+		<typeAlias alias="outer" type="com.myspring.today.bookmark.BookmarkOuterVO" />
 	</typeAliases>	
 </configuration>

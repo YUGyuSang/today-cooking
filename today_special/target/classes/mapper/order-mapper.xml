@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="OrderDAO">
-<!-- 	<insert id="insertOrder" parameterType="java.util.List"> -->
-<!-- 		INSERT INTO -->
-<!-- 		ORDER(ORDER_NUM,ORDER_CONTENT,RECIPE_ID) -->
-<!-- 		VALUES -->
-<!-- 		<foreach collection="list" item="item" separator=","> -->
-<!-- 			( -->
-<!-- 			#{item.orderNum}, -->
-<!-- 			#{item.orderContent}, -->
-<!-- 			#{item.recipeId} -->
-<!-- 			) -->
-<!-- 		</foreach> -->
-<!-- 	</insert> -->
+	<resultMap id="orderList" type="order">
+		<id property="orderId" column="ORDER_ID" />
+		<result property="orderNum" column="ORDER_NUM" />
+		<result property="orderContent" column="ORDER_CONTENT" />
+		<result property="recipeId" column="RECIPE_ID" />
+	</resultMap>
 	<insert id="insertOrder" parameterType="order">
 		INSERT INTO
 		`ORDER`(ORDER_NUM,ORDER_CONTENT,RECIPE_ID)
 		VALUES(
-			#{orderNum},
-			#{orderContent},
-			#{recipeId}
-			)
+		#{orderNum},
+		#{orderContent},
+		#{recipeId}
+		)
 	</insert>
+	<!-- 재료리스트 리턴 -->
+	<select id="getOrderList" parameterType="int" resultMap="orderList">
+		SELECT *
+		FROM `ORDER`
+		WHERE RECIPE_ID = #{recipeId}
+	</select>
 </mapper>

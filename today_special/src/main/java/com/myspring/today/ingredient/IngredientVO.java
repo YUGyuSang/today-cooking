@@ -1,7 +1,5 @@
 package com.myspring.today.ingredient;
 
-import java.util.List;
-
 public class IngredientVO {
 	private int ingredientId;
 	private String ingredientName; 

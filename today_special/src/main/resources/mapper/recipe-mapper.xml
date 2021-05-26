@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="RecipeDAO">
-	<resultMap id="recipeResult" type="recipe">
+	<resultMap id="recipeList" type="recipe">
 		<id property="recipeId" column="RECIPE_ID" />
 		<result property="recipeTitle" column="RECIPE_TITLE" />
 		<result property="recipeContent" column="RECIPE_CONTENT" />
@@ -26,29 +26,55 @@
 		RECIPE(RECIPE_ID,RECIPE_TITLE,RECIPE_CONTENT,RECIPE_SITUATION,RECIPE_INGREDIENT,RECIPE_THUMBNAIL,USER_ID)
 		VALUES(#{recipeId},#{recipeTitle},#{recipeContent},#{recipeSituation},#{recipeIngredient},#{recipeThumbnail},#{userId})
 	</insert>
+
 	<!-- 레시피 아이디로 레시피 겟 -->
-	<select id="getRecipe" parameterType="int" resultMap="recipeResult">
+	<select id="getRecipe" parameterType="int"
+		resultMap="recipeList">
 		SELECT *
 		FROM RECIPE
 		WHERE RECIPE_ID = #{recipeId}
 	</select>
-	
+
 	<!-- 키워드로 레시피 검색 -->
-	<select id="getKeywordRecipe" resultMap="recipeResult">
+	<select id="getKeywordRecipe" resultMap="recipeList">
 		SELECT *
 		FROM RECIPE
 		WHERE RECIPE_TITLE LIKE CONCAT('%',#{searchKeyword},'%')
 	</select>
+
 	<!-- 상황별 레시피 검색 -->
-	<select id="getSituationRecipe" parameterType="String" resultMap="recipeResult">
+	<select id="getSituationRecipe" parameterType="String"
+		resultMap="recipeList">
 		SELECT *
 		FROM RECIPE
-		WHERE RECIPE_SITUATION = #{recipeSituation}
+		WHERE RECIPE_SITUATION =
+		#{recipeSituation}
 	</select>
+
 	<!-- 재료별 레시피 검색 -->
-	<select id="getIngredientRecipe" parameterType="String" resultMap="recipeResult">
+	<select id="getIngredientRecipe" parameterType="String"
+		resultMap="recipeList">
 		SELECT *
 		FROM RECIPE
-		WHERE RECIPE_INGREDIENT = #{recipeIngredient}
+		WHERE RECIPE_INGREDIENT =
+		#{recipeIngredient}
+	</select>
+
+	<!-- 일간 베스트 -->
+	<select id="getTodayBest" resultMap="recipeList">
+		SELECT *
+		FROM RECIPE
+		WHERE RECIPE_DATE > DATE_ADD(now(), INTERVAL -24 HOUR)
+		ORDER BY BOOKMARK_COUNT DESC
+		LIMIT 10;
+	</select>
+
+	<!-- 주간 베스트 -->
+	<select id="getWeeklyBest" resultMap="recipeList">
+		SELECT *
+		FROM RECIPE
+		WHERE RECIPE_DATE > DATE_ADD(now(), INTERVAL -7 DAY)
+		ORDER BY BOOKMARK_COUNT DESC
+		LIMIT 10;
 	</select>
 </mapper>

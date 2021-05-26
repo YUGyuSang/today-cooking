@@ -39,4 +39,14 @@ public class RecipeDAO {
 	public List<RecipeVO> getIngredientRecipe(String recipeIngredient) {
 		return mybatis.selectList("RecipeDAO.getIngredientRecipe", recipeIngredient);
 	}
+
+	// 일간 베스트
+	public List<RecipeVO> getTodayBest() {
+		return mybatis.selectList("RecipeDAO.getTodayBest");
+	}
+
+	// 주간 베스트
+	public List<RecipeVO> getWeeklyBest() {
+		return mybatis.selectList("RecipeDAO.getWeeklyBest");
+	}
 }

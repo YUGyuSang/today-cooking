@@ -6,8 +6,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.myspring.today.recipe.RecipeVO;
-
 @Repository
 public class IngredientDAO {
 	@Autowired
@@ -18,7 +16,7 @@ public class IngredientDAO {
 		mybatis.insert("IngredientDAO.insertIngredient", vo);
 	}
 	
-	public int getRecipeId(RecipeVO vo) {
-		return mybatis.selectOne("RecipeDAO.getRecipeId", vo);
+	public List<IngredientVO> getIngredientList(int recipeId) {
+		return mybatis.selectList("IngredientDAO.getIngredientList", recipeId);
 	}
 }
