@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>header</title>
-    <link href="./css/header.css?ver=2" rel="stylesheet" type="text/css" />
+    <link href="./css/header.css?ver=3" rel="stylesheet" type="text/css" />
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
 <body>
@@ -20,8 +20,8 @@
                 <button class="srarch"><i class="fas fa-search"></i></button>
             </div>
           
-            <span><a href="login.jsp"><i class="fas fa-user"></i></a></span>
-            <span><a href="login.jsp"><i class="fas fa-pen"></i></a></span>
+            <span class="headerspan"><a href="login.jsp"><i class="fas fa-user"></i></a></span>
+            <span class="headerspan"><a href="login.jsp"><i class="fas fa-pen"></i></a></span>
             
         </div>
         

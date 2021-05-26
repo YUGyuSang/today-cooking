@@ -28,11 +28,11 @@ public class SearchController {
 	public ModelAndView getSearchResult(RecipeVO vo, ModelAndView mv) throws UnsupportedEncodingException {
 		String searchKeyword = vo.getSearchKeyword();
 		List<RecipeVO> recipeList = recipeDAO.getKeywordRecipe(vo);
-		List<YoutubeVO> YoutubeList = youtube.getYoutubeList(searchKeyword);
+		//List<YoutubeVO> YoutubeList = youtube.getYoutubeList(searchKeyword);
 		List<NaverVO> NaverList = naver.getNaverList(searchKeyword);
 		mv.addObject("searchKeyword", searchKeyword);
 		mv.addObject("recipeList", recipeList);
-		mv.addObject("YoutubeList", YoutubeList);
+		//mv.addObject("YoutubeList", YoutubeList);
 		mv.addObject("NaverList", NaverList);
 		mv.setViewName("getRecipeList.jsp");
 		return mv;
