@@ -49,8 +49,6 @@
             <div id="menu4"><a class="maina" href="#">주간 베스트 요리</a></div>
         </section>
 </div>
-	
-
 		<div id="footer">
 			<jsp:include page="footer.jsp" />
 		</div>

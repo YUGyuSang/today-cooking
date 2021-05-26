@@ -1,17 +1,11 @@
 package com.myspring.view.controller;
 
+import java.io.File;
 import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -48,9 +42,12 @@ public class RecipeController {
 			@RequestParam("ingredientName") String[] ingredientName,
 			@RequestParam("ingredientAmount") String[] ingredientAmount,
 			@RequestParam("orderContent") String[] orderContent,
-			@RequestParam("recipeThumb") MultipartFile img) throws IOException {
-		if (img != null && !img.isEmpty()) {
-			revo.setRecipeThumbnail(img.getBytes());
+			@RequestParam("recipeThumb") MultipartFile thumb) throws IOException {
+		if(!thumb.isEmpty()) {
+			UUID uuid = UUID.randomUUID();
+			String fileName=uuid+"_"+thumb.getOriginalFilename();
+			thumb.transferTo(new File("C:/spring_img/"+fileName));
+			revo.setRecipeThumbnail(fileName);
 		}
 		recipeDAO.insertRecipe(revo);
 		int i;
