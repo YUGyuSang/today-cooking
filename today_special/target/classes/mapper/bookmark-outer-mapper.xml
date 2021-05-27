@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="BookmarkOuterDAO">
+	<resultMap id="outerList" type="outer">
+		<id property="outerId" column="OUTER_ID" />
+		<result property="outerUrl" column="OUTER_URL" />
+		<result property="outerTitle" column="OUTER_TITLE" />
+		<result property="outerThumbnail" column="OUTER_THUMBNAIL" />
+		<result property="userId" column="USER_ID" />
+	</resultMap>
+	<!-- 외부 북마크 중복 체크 -->
+	<select id="checkBookmarkOuter" parameterType="outer" resultType="int">
+		SELECT COUNT(*)
+		FROM BOOKMARK_OUTER
+		WHERE OUTER_URL= #{outerUrl}
+		AND USER_ID=#{userId}
+	</select>
 	<!-- 외부 북마크 등록 -->
 	<insert id="insertBookmarkOuter" parameterType="outer">
 		INSERT INTO
@@ -12,4 +26,15 @@
 		#{userId}
 		)
 	</insert>
+	<!-- 외부 북마크 리턴 -->
+	<select id="getBookmarkOuter" parameterType="String" resultMap="outerList">
+		SELECT *
+		FROM BOOKMARK_OUTER
+		WHERE USER_ID = #{userId}
+	</select>
+	<!-- 외부 북마크 삭제 -->
+	<delete id="deleteBookmarkOuter" parameterType="outer">
+		DELETE FROM BOOKMARK_OUTER
+		WHERE OUTER_ID=#{outerId}
+	</delete>
 </mapper>

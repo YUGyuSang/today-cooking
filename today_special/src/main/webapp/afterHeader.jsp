@@ -27,7 +27,7 @@
                 </button>
                 <div class="dropdown-content" style="z-index:2;">
                     <a href="getUser.do">마이페이지</a>
-                    <a href="getUser.do">내가 쓴 글</a>
+                    <a href="getMyRecipe.do">내가 쓴 글</a>
                     <a href="getBookmarkList.do">북마크</a>
                     <a href="logout.do">로그아웃</a>
                 </div>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BookmarkInnerDAO">
+	<resultMap id="innerList" type="inner">
+		<id property="bookmarkId" column="BOOKMARK_ID" />
+		<result property="recipeId" column="RECIPE_ID" />
+		<result property="userId" column="USER_ID" />
+	</resultMap>
+	<!-- 내부 북마크 중복 체크 -->
+	<select id="checkBookmarkInner" parameterType="inner"
+		resultType="int">
+		SELECT COUNT(*)
+		FROM BOOKMARK_INNER
+		WHERE RECIPE_ID=#{recipeId}
+		AND USER_ID=#{userId}
+	</select>
+	<!-- 내부 북마크 등록 -->
+	<insert id="insertBookmarkInner" parameterType="inner">
+		INSERT INTO
+		BOOKMARK_INNER(RECIPE_ID,USER_ID)
+		VALUES(
+		#{recipeId},
+		#{userId}
+		)
+	</insert>
+	<!-- 내부 북마크 리턴 -->
+	<select id="getBookmarkInner" parameterType="String"
+		resultMap="innerList">
+		SELECT *
+		FROM BOOKMARK_INNER
+		WHERE USER_ID = #{userId}
+	</select>
+	<!-- 내부 북마크 삭제 -->
+	<delete id="deleteBookmarkInner" parameterType="inner">
+		DELETE FROM BOOKMARK_INNER
+		WHERE RECIPE_ID=#{recipeId}
+		AND USER_ID=#{userId}
+	</delete>
+</mapper>

@@ -49,4 +49,14 @@ public class RecipeDAO {
 	public List<RecipeVO> getWeeklyBest() {
 		return mybatis.selectList("RecipeDAO.getWeeklyBest");
 	}
+
+	// 북마크 수 증가
+	public void upBookmarkCount(int recipeId) {
+		mybatis.update("RecipeDAO.upBookmarkCount", recipeId);
+	}
+
+	// 북마크 수 감소
+	public void downBookmarkCount(int recipeId) {
+		mybatis.update("RecipeDAO.downBookmarkCount", recipeId);
+	}
 }

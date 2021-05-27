@@ -84,5 +84,5 @@ public class RecipeVO {
 				+ ", recipeContent=" + recipeContent + ", recipeSituation=" + recipeSituation
 				+ ", recipeIngredient=" + recipeIngredient + ", userId=" + userId + "]";
 	}
-	
+
 }

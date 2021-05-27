@@ -77,4 +77,16 @@
 		ORDER BY BOOKMARK_COUNT DESC
 		LIMIT 10;
 	</select>
+	<!-- 북마크 수 증가 -->
+	<update id="upBookmarkCount" parameterType="recipe">
+	UPDATE RECIPE
+	SET BOOKMARK_COUNT=BOOKMARK_COUNT+1
+	WHERE RECIPE_ID=#{recipeId}
+	</update>
+	<!-- 북마크 수 감소 -->
+	<update id="downBookmarkCount" parameterType="recipe">
+	UPDATE RECIPE
+	SET BOOKMARK_COUNT=BOOKMARK_COUNT-1
+	WHERE RECIPE_ID=#{recipeId}
+	</update>
 </mapper>

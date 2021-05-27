@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.myspring.today.bookmark.BookmarkInnerDAO;
+import com.myspring.today.bookmark.BookmarkInnerVO;
 import com.myspring.today.ingredient.IngredientDAO;
 import com.myspring.today.ingredient.IngredientVO;
 import com.myspring.today.order.OrderDAO;
@@ -27,6 +31,8 @@ public class RecipeController {
 	private IngredientDAO ingredientDAO;
 	@Autowired
 	private OrderDAO orderDAO;
+	@Autowired
+	private BookmarkInnerDAO innerDAO;
 
 	// 레시피 등록 하기 전 MaxRecipeId 찾기
 	@RequestMapping("/getMaxRecipeId.do")
@@ -71,10 +77,19 @@ public class RecipeController {
 
 	// 레시피 글
 	@RequestMapping("/getRecipe.do")
-	public ModelAndView getRecipe(@RequestParam("recipeId") int recipeId,ModelAndView mv) {
+	public ModelAndView getRecipe(@RequestParam("recipeId") int recipeId,HttpSession session,ModelAndView mv) {
+		BookmarkInnerVO invo=new BookmarkInnerVO();
+		String loginId = (String) session.getAttribute("loginId");
+		int check=0;
+		if(loginId!=null) {
+			invo.setRecipeId(recipeId);
+			invo.setUserId(loginId);
+			check=innerDAO.checkBookmarkInner(invo);	
+		}
 		RecipeVO recipe=recipeDAO.getRecipe(recipeId);
 		List<IngredientVO> ingredientList=ingredientDAO.getIngredientList(recipeId);
 		List<OrderVO> orderList=orderDAO.getOrderList(recipeId);
+		mv.addObject("check",check);
 		mv.addObject("recipe", recipe);
 		mv.addObject("ingredientList",ingredientList);
 		mv.addObject("orderList",orderList);
