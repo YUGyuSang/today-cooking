@@ -40,7 +40,6 @@ public class SearchController {
 	@RequestMapping(value = "/getSituationRecipe.do")
 	public ModelAndView getSituationRecipe(@RequestParam("key") String situation, ModelAndView mv) {
 		List<RecipeVO> recipeList = recipeDAO.getSituationRecipe(situation);
-		System.out.println(recipeList.toString());
 		mv.addObject("situation", situation);
 		mv.addObject("recipeList", recipeList);
 		mv.setViewName("getSituationList.jsp");
@@ -51,7 +50,6 @@ public class SearchController {
 	@RequestMapping(value = "/getIngredientRecipe.do")
 	public ModelAndView getIngredientRecipe(@RequestParam("key") String ingredient, ModelAndView mv) {
 		List<RecipeVO> recipeList = recipeDAO.getIngredientRecipe(ingredient);
-		System.out.println(recipeList.toString());
 		mv.addObject("ingredient", ingredient);
 		mv.addObject("recipeList", recipeList);
 		mv.setViewName("getIngredientList.jsp");

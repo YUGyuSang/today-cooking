@@ -1,8 +1,10 @@
 package com.myspring.view.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +28,7 @@ public class UserController {
 
 	// 회원가입
 	@RequestMapping("/insertUser.do")
-	public String insertUser(UserVO vo, @RequestParam("bf_profile") MultipartFile img)
-			throws IOException {
+	public String insertUser(UserVO vo, @RequestParam("bf_profile") MultipartFile img) throws IOException {
 		if (img != null && !img.isEmpty()) {
 			vo.setProfile(img.getBytes());
 		}
@@ -46,15 +47,13 @@ public class UserController {
 
 	// 프로필 출력
 	@RequestMapping("/profileView.do")
-	public ResponseEntity<byte[]> profileView(HttpSession session, HttpServletRequest request)
-			throws IOException {
+	public ResponseEntity<byte[]> profileView(HttpSession session, HttpServletRequest request) throws IOException {
 		try {
 			String loginId = (String) session.getAttribute("loginId");
 			UserVO user = userDAO.getUser(loginId);
 			HttpHeaders header = new HttpHeaders();
 			header.setContentType(MediaType.IMAGE_PNG);
-			ResponseEntity<byte[]> ret = new ResponseEntity<>(user.getProfile(), header,
-					HttpStatus.OK);
+			ResponseEntity<byte[]> ret = new ResponseEntity<>(user.getProfile(), header, HttpStatus.OK);
 			return ret;
 		} catch (Exception e) {
 
@@ -62,23 +61,57 @@ public class UserController {
 		return null;
 	}
 
+	// 회원정보 수정
+	@RequestMapping("updateUser.do")
+	public ModelAndView updateUser(UserVO vo, @RequestParam("bf_profile") MultipartFile img, ModelAndView mv,
+			HttpServletResponse response) throws IOException {
+		if (img != null && !img.isEmpty()) {
+			vo.setProfile(img.getBytes());
+		}
+		userDAO.updateUser(vo);
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>alert('회원정보 수정 완료'); </script>");
+		out.flush();
+		mv.setViewName("getUser.do");
+		return mv;
+	}
+
+	// 회원 탈퇴
+	@RequestMapping("deleteUser.do")
+	public String updateUser(UserVO vo){
+		userDAO.deleteUser(vo);
+		return "logout.do";
+	}
+
 	// 로그인
 	@RequestMapping("/login.do")
-	public String login(UserVO vo, HttpSession session) {
+	public String login(UserVO vo, HttpSession session, HttpServletRequest request, HttpServletResponse response)
+			throws IOException {
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		if (vo.getId() == null || vo.getId().equals("")) {
-			throw new IllegalArgumentException("아이디와 비밀번호를 입력하세요.");
+			out.println("<script>alert('아이디를 입력하세요'); </script>");
+			out.flush();
 		}
 		int check = userDAO.login(vo);
 		if (check == 1) {
 			session.setAttribute("loginId", vo.getId());
+			String referer = request.getHeader("Referer");
+			request.getSession().setAttribute("redirectURI", referer);
 			return "index.jsp";
-		} else
+		} else {
+			out.println("<script>alert('로그인에 실패하셨습니다..'); </script>");
+			out.flush();
 			return "login.jsp";
+		}
 	}
-	//로그아웃
+
+	// 로그아웃
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
 		session.removeAttribute("loginId");
 		return "index.jsp";
 	}
+
 }

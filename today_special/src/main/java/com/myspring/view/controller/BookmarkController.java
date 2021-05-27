@@ -36,7 +36,7 @@ public class BookmarkController {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		String loginId = (String) session.getAttribute("loginId");
-		int recipeId=invo.getRecipeId();
+		int recipeId = invo.getRecipeId();
 		if (loginId == null) {
 			out.println("<script>alert('로그인이 필요한 기능입니다.');</script>");
 			out.flush();
@@ -47,7 +47,7 @@ public class BookmarkController {
 			recipeDAO.upBookmarkCount(recipeId);
 			out.println("<script>alert('북마크 완료'); </script>");
 			out.flush();
-			return "getRecipe.do?recipeId="+recipeId;
+			return "getRecipe.do?recipeId=" + recipeId;
 		}
 	}
 
@@ -62,7 +62,7 @@ public class BookmarkController {
 			out.println("<script>alert('로그인이 필요한 기능입니다.');</script>");
 			out.flush();
 			return "login.jsp";
-		}else {
+		} else {
 			otvo.setUserId(loginId);
 			int check = outerDAO.checkBookmarkOuter(otvo); // 북마크 중복 체크
 			if (check > 0) {
@@ -74,7 +74,7 @@ public class BookmarkController {
 				out.flush();
 				return null;
 			}
-		}		
+		}
 	}
 
 	// 북마크 리스트
@@ -95,19 +95,36 @@ public class BookmarkController {
 		return mv;
 	}
 
-	// 내부 북마크 삭제
+	// 레시피 상세에서 내부 북마크 삭제
 	@RequestMapping(value = "/deleteBookmarkInner.do")
-	public String deleteBookmarkOuter(BookmarkInnerVO invo, HttpSession session,HttpServletResponse response) throws IOException {
+	public String deleteBookmarkInner(BookmarkInnerVO invo, HttpSession session, HttpServletResponse response)
+			throws IOException {
 		String userId = (String) session.getAttribute("loginId");
 		invo.setUserId(userId);
-		int recipeId=invo.getRecipeId();
+		int recipeId = invo.getRecipeId();
 		innerDAO.deleteBookmarkInner(invo);
 		recipeDAO.downBookmarkCount(recipeId);
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		out.println("<script>alert('북마크 삭제 완료');</script>");
+		out.println("<script>alert('북마크 삭제 완료'); </script>");
 		out.flush();
-		return "getRecipe.do?recipeId="+recipeId;
+		return "getRecipe.do?recipeId=" + recipeId;
+	}
+
+	// 레시피 리스트에서 내부 북마크 삭제
+	@RequestMapping(value = "/deleteBookmarkInner2.do")
+	public String deleteBookmarkInner2(BookmarkInnerVO invo, HttpSession session, HttpServletResponse response)
+			throws IOException {
+		String userId = (String) session.getAttribute("loginId");
+		invo.setUserId(userId);
+		int recipeId = invo.getRecipeId();
+		innerDAO.deleteBookmarkInner(invo);
+		recipeDAO.downBookmarkCount(recipeId);
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>alert('북마크 삭제 완료'); </script>");
+		out.flush();
+		return "getBookmarkList.do";
 	}
 
 	// 외부 북마크 삭제

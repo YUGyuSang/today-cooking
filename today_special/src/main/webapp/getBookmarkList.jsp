@@ -32,7 +32,7 @@
 		<table id="book_table">
 			<tr>
 				<c:forEach items="${recipeList}" var="recipe">
-					<form action="deleteBookmarkInner.do">
+					<form action="deleteBookmarkInner2.do">
 						<input type="hidden" name="recipeId" value=${recipe.recipeId }>
 						<td><a href="getRecipe.do?recipeId=${recipe.recipeId }"><img src="/today_img/${recipe.recipeThumbnail }" alt=""></a>
 							<p>${recipe.recipeTitle }</p>
@@ -42,7 +42,7 @@
 				<c:forEach items="${outerList}" var="outer">
 					<form action="deleteBookmarkOuter.do">
 						<input type="hidden" name="outerId" value=${outer.outerId }>
-						<td><a href="${outer.outerUrl }"><img src="${outer.outerThumbnail }" alt=""></a>
+						<td><a href="${outer.outerUrl }" target="_blank"><img src="${outer.outerThumbnail }" alt=""></a>
 							<p>${outer.outerTitle }</p>
 							<button>삭제</button></td>
 					</form>

@@ -31,21 +31,21 @@ if (login_check != null) {
 				<fieldset>
 					<legend>재료별 분류</legend>
 					<ul class="recipes">
-						<li class="gli"><a href="getIngredientRecipe.do?key=무직"><img src="./img/meat.png" alt="">
+						<li class="gli"><a href="getIngredientRecipe.do?key=정육"><img src="./img/meat.png" alt="">
 							<p>정육</p></a></li>
-						<li class="gli"><a href="#"><img src="./img/fish.png" alt="">
+						<li class="gli"><a href="getIngredientRecipe.do?key=수산"><img src="./img/fish.png" alt="">
 							<p>수산</p></a></li>
-						<li class="gli"><a href="#"><img src="./img/vegetable.png" alt="">
+						<li class="gli"><a href="getIngredientRecipe.do?key=채소"><img src="./img/vegetable.png" alt="">
 							<p>채소</p></a></li>
-						<li class="gli"><a href="#"><img src="./img/egg.png" alt="">
+						<li class="gli"><a href="getIngredientRecipe.do?key=계란"><img src="./img/egg.png" alt="">
 							<p>계란</p></a></li>
-						<li class="gli"><a href="#"><img src="./img/fruit.png" alt="">
+						<li class="gli"><a href="getIngredientRecipe.do?key=과일"><img src="./img/fruit.png" alt="">
 							<p>과일</p></a></li>
-						<li class="gli"><a href="#"><img src="./img/noodle.png" alt="">
+						<li class="gli"><a href="getIngredientRecipe.do?key=면"><img src="./img/noodle.png" alt="">
 							<p>면</p></a></li>
-						<li class="gli"><a href="#"><img src="./img/tteok.png" alt="">
+						<li class="gli"><a href="getIngredientRecipe.do?key=떡"><img src="./img/tteok.png" alt="">
 							<p>떡</p></a></li>
-						<li class="gli"><a href="#"><img src="./img/Various.png" alt="">
+						<li class="gli"><a href="getIngredientRecipe.do?key=기타"><img src="./img/Various.png" alt="">
 							<p>기타</p></a></li>
 					</ul>
 				</fieldset>

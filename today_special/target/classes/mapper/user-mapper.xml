@@ -8,11 +8,14 @@
 		<result property="nickname" column="NICKNAME" />
 		<result property="profile" column="profile" jdbcType="BLOB" javaType="_byte[]" />
 	</resultMap>
+	<!-- 회원 등록 -->
 	<insert id="insertUser" parameterType="user">
 		INSERT INTO USER(ID,
 		PASSWORD, EMAIL, NICKNAME,PROFILE)
 		VALUES(#{id},#{password},#{email},#{nickname},#{profile})
 	</insert>
+	
+	<!-- 로그인 확인 -->
 	<select id="login" parameterType="user" resultType="int">
 		SELECT
 		COUNT(*)
@@ -20,6 +23,8 @@
 		WHERE ID = #{id}
 		AND PASSWORD = #{password}
 	</select>
+	
+	<!-- 회원 정보 리턴 -->
 	<select id="getUser" parameterType="String" resultType="user">
 		SELECT
 		ID,
@@ -27,4 +32,17 @@
 		FROM USER
 		WHERE ID =#{id}
 	</select>
+	
+	<!-- 회원 정보 수정 -->
+	<update id="updateUser" parameterType="user">
+		UPDATE USER
+		SET PASSWORD=#{password},EMAIL=#{email},NICKNAME=#{nickname},PROFILE=#{profile}
+		WHERE ID=#{id}
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="deleteUser" parameterType="user">
+		DELETE FROM USER
+		WHERE ID =#{id}
+	</delete>
 </mapper>

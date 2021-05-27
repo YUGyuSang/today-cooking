@@ -77,34 +77,51 @@ public class RecipeController {
 
 	// 레시피 글
 	@RequestMapping("/getRecipe.do")
-	public ModelAndView getRecipe(@RequestParam("recipeId") int recipeId,HttpSession session,ModelAndView mv) {
-		BookmarkInnerVO invo=new BookmarkInnerVO();
+	public ModelAndView getRecipe(@RequestParam("recipeId") int recipeId, HttpSession session, ModelAndView mv) {
+		BookmarkInnerVO invo = new BookmarkInnerVO();
 		String loginId = (String) session.getAttribute("loginId");
-		int check=0;
-		if(loginId!=null) {
+		int check = 0;
+		if (loginId != null) {
 			invo.setRecipeId(recipeId);
 			invo.setUserId(loginId);
-			check=innerDAO.checkBookmarkInner(invo);	
+			check = innerDAO.checkBookmarkInner(invo);
 		}
-		RecipeVO recipe=recipeDAO.getRecipe(recipeId);
-		List<IngredientVO> ingredientList=ingredientDAO.getIngredientList(recipeId);
-		List<OrderVO> orderList=orderDAO.getOrderList(recipeId);
-		mv.addObject("check",check);
+		RecipeVO recipe = recipeDAO.getRecipe(recipeId);
+		List<IngredientVO> ingredientList = ingredientDAO.getIngredientList(recipeId);
+		List<OrderVO> orderList = orderDAO.getOrderList(recipeId);
+		mv.addObject("check", check);
 		mv.addObject("recipe", recipe);
-		mv.addObject("ingredientList",ingredientList);
-		mv.addObject("orderList",orderList);
+		mv.addObject("ingredientList", ingredientList);
+		mv.addObject("orderList", orderList);
 		mv.setViewName("getRecipe.jsp");
 		return mv;
 	}
-	
+
 	// 랭킹
 	@RequestMapping("/getRankingList.do")
 	public ModelAndView getRankingList(ModelAndView mv) {
-		List<RecipeVO> todayList=recipeDAO.getTodayBest();
-		List<RecipeVO> weeklyList=recipeDAO.getWeeklyBest();
-		mv.addObject("todayList",todayList);
-		mv.addObject("weeklyList",weeklyList);
+		List<RecipeVO> todayList = recipeDAO.getTodayBest();
+		List<RecipeVO> weeklyList = recipeDAO.getWeeklyBest();
+		mv.addObject("todayList", todayList);
+		mv.addObject("weeklyList", weeklyList);
 		mv.setViewName("ranking.jsp");
 		return mv;
+	}
+
+	// 내가 쓴 글
+	@RequestMapping("/getMyRecipeList.do")
+	public ModelAndView getMyRecipeList(HttpSession session, ModelAndView mv) {
+		String loginId = (String) session.getAttribute("loginId");
+		List<RecipeVO> recipeList = recipeDAO.getMyRecipeList(loginId);
+		mv.addObject("recipeList", recipeList);
+		mv.setViewName("getMyRecipeList.jsp");
+		return mv;
+	}
+
+	// 레시피 삭제
+	@RequestMapping("/deleteRecipe.do")
+	public String deleteRecipe(RecipeVO revo) {
+		recipeDAO.deleteRecipe(revo);
+		return "getMyRecipeList.do";
 	}
 }

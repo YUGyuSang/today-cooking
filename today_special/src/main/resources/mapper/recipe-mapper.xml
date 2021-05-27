@@ -64,8 +64,10 @@
 	<select id="getTodayBest" resultMap="recipeList">
 		SELECT *
 		FROM RECIPE
-		WHERE RECIPE_DATE > DATE_ADD(now(), INTERVAL -24 HOUR)
-		ORDER BY BOOKMARK_COUNT DESC
+		WHERE
+		RECIPE_DATE > DATE_ADD(now(), INTERVAL -24 HOUR)
+		ORDER BY
+		BOOKMARK_COUNT DESC
 		LIMIT 10;
 	</select>
 
@@ -73,20 +75,39 @@
 	<select id="getWeeklyBest" resultMap="recipeList">
 		SELECT *
 		FROM RECIPE
-		WHERE RECIPE_DATE > DATE_ADD(now(), INTERVAL -7 DAY)
-		ORDER BY BOOKMARK_COUNT DESC
+		WHERE
+		RECIPE_DATE > DATE_ADD(now(), INTERVAL -7 DAY)
+		ORDER BY BOOKMARK_COUNT
+		DESC
 		LIMIT 10;
 	</select>
+
 	<!-- 북마크 수 증가 -->
 	<update id="upBookmarkCount" parameterType="recipe">
-	UPDATE RECIPE
-	SET BOOKMARK_COUNT=BOOKMARK_COUNT+1
-	WHERE RECIPE_ID=#{recipeId}
+		UPDATE RECIPE
+		SET BOOKMARK_COUNT=BOOKMARK_COUNT+1
+		WHERE RECIPE_ID=#{recipeId}
 	</update>
+
 	<!-- 북마크 수 감소 -->
 	<update id="downBookmarkCount" parameterType="recipe">
-	UPDATE RECIPE
-	SET BOOKMARK_COUNT=BOOKMARK_COUNT-1
-	WHERE RECIPE_ID=#{recipeId}
+		UPDATE RECIPE
+		SET BOOKMARK_COUNT=BOOKMARK_COUNT-1
+		WHERE RECIPE_ID=#{recipeId}
+		LIMIT 0
 	</update>
+
+	<!-- 내가 쓴 글 -->
+	<select id="getMyRecipeList" parameterType="String"
+		resultMap="recipeList">
+		SELECT *
+		FROM RECIPE
+		WHERE USER_ID=#{userId}
+	</select>
+
+	<!-- 레시피 삭제 -->
+	<delete id="deleteRecipe" parameterType="recipe">
+		DELETE FROM RECIPE
+		WHERE RECIPE_ID =#{recipeId}
+	</delete>
 </mapper>

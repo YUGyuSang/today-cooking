@@ -17,11 +17,5 @@
 		<property name="maxInMemorySize" value="52428800"></property>
 		<property name="defaultEncoding" value="utf-8"></property>
 	</bean>
-	<!-- 이미지 업로드 경로 -->
-	<bean id="uploadPath" class="java.lang.String">
-		<constructor-arg
-			value="C:\spring_img">
-		</constructor-arg>
-	</bean>
 
 </beans>

@@ -29,7 +29,7 @@
                 <div id="menu_var" class="wap">
                 <nav>
                     <ul>
-                        <li class="menu"><a href="index.jsp">추천</a></li>
+                        <li class="menu"><a href="index.jsp">메인</a></li>
                         <li class="menu"><a href="getRankingList.do">랭킹</a></li>
                         <li class="menu"><a href="getSituationList.jsp">상황별</a></li>
                         <li class="menu"><a href="getIngredientList.jsp">재료별</a></li>
