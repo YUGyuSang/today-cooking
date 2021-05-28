@@ -13,7 +13,7 @@
     <header>
         <div id="header">
             <div>
-                <a href="#"><img src="./img/logo.png" alt="로고"></a>
+                <a href="index.jsp"><img src="./img/logo.png" alt="로고"></a>
             </div>
         </div>
     </header> 

@@ -45,6 +45,14 @@ public class UserController {
 		return mv;
 	}
 
+	// 회원 아이디로 닉네임 찾기
+	@RequestMapping("getUserNickname.do")
+	public String getUserNickname(@RequestParam("userId") String userId) {
+		System.out.println("호출 됨");
+		String nickname=userDAO.getUser(userId).getNickname();
+		return nickname;
+	}
+
 	// 프로필 출력
 	@RequestMapping("/profileView.do")
 	public ResponseEntity<byte[]> profileView(HttpSession session, HttpServletRequest request) throws IOException {
@@ -79,7 +87,7 @@ public class UserController {
 
 	// 회원 탈퇴
 	@RequestMapping("deleteUser.do")
-	public String updateUser(UserVO vo){
+	public String updateUser(UserVO vo) {
 		userDAO.deleteUser(vo);
 		return "logout.do";
 	}

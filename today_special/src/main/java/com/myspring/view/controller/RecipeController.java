@@ -37,7 +37,11 @@ public class RecipeController {
 	// 레시피 등록 하기 전 MaxRecipeId 찾기
 	@RequestMapping("/getMaxRecipeId.do")
 	public ModelAndView getMaxRecipeId(ModelAndView mv) {
-		int recipeId = recipeDAO.getMaxRecipeId() + 1;
+		int maxNum=0;
+		try{
+			maxNum=recipeDAO.getMaxRecipeId();
+		} catch(NullPointerException e) {}
+		int recipeId = maxNum + 1;
 		mv.addObject("recipeId", recipeId);
 		mv.setViewName("insertRecipe.jsp");
 		return mv;
@@ -72,7 +76,7 @@ public class RecipeController {
 			orvo.setRecipeId(recipeId);
 			orderDAO.insertOrder(orvo);
 		}
-		return "index.jsp";
+		return "getRecipe.do";
 	}
 
 	// 레시피 글

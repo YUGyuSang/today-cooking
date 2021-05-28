@@ -2,6 +2,8 @@ package com.myspring.today.recipe;
 
 import java.sql.Date;
 
+import com.myspring.today.user.UserVO;
+
 public class RecipeVO {
 	private int recipeId;
 	private String recipeTitle; //제목
@@ -12,6 +14,7 @@ public class RecipeVO {
 	private int bookmarkCount;
 	private Date recipeDate;
 	private String userId;
+	private UserVO userVO;
 	
 	//검색을 위한 변수
 	private String searchKeyword;
@@ -77,6 +80,13 @@ public class RecipeVO {
 	}
 	public void setSearchKeyword(String searchKeyword) {
 		this.searchKeyword = searchKeyword;
+	}
+	
+	public UserVO getUserVO() {
+		return userVO;
+	}
+	public void setUserVO(UserVO userVO) {
+		this.userVO = userVO;
 	}
 	@Override
 	public String toString() {

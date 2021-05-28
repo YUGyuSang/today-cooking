@@ -16,7 +16,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/ranking.css" type="text/css">
+    <link rel="stylesheet" href="./css/ranking.css?ver=1" type="text/css">
     <title>랭킹</title>
 </head>
 <body>
@@ -44,7 +44,7 @@
         <div class="te">
          <c:forEach items="${weeklyList}" var="weekly">
             <div class="recipebox">
-                <div class="boxs"><a href="getRecipe.do?recipeId=${weekly.recipeId }"><img src="/today_img/${weekly.recipeThumbnail }" alt=""><p>${weekly.recipeThumbnail } <br>북마크: ${weekly.bookmarkCount } </p></a></div>
+                <div class="boxs"><a href="getRecipe.do?recipeId=${weekly.recipeId }"><img src="/today_img/${weekly.recipeThumbnail }" alt=""><p>${weekly.recipeTitle } <br>북마크: ${weekly.bookmarkCount } </p></a></div>
             </div>
          </c:forEach>
         </div>

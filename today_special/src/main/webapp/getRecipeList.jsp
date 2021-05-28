@@ -37,7 +37,7 @@ if (login_check != null) {
 								<td><a href="getRecipe.do?recipeId=${recipe.recipeId} "> <img
 										src="/today_img/${recipe.recipeThumbnail }">
 										<p class="search_p">
-											<span class="getspan">${recipe.recipeTitle}</span> <br> <b>작성자: </b> <span class="getspan">${recipe.userId}</span>
+											<span class="getspan">${recipe.recipeTitle}</span> <br> <span class="getspan">${recipe.userVO.nickname}</span>
 										</p></a></td>
 							</form>
 						</c:forEach>
