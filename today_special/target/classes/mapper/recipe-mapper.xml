@@ -6,7 +6,8 @@
 		<result property="password" column="PASSWORD" />
 		<result property="email" column="EMAIL" />
 		<result property="nickname" column="NICKNAME" />
-		<result property="profile" column="profile" jdbcType="BLOB" javaType="_byte[]" />
+		<result property="profile" column="profile" jdbcType="BLOB"
+			javaType="_byte[]" />
 	</resultMap>
 	<resultMap id="recipeList" type="recipe">
 		<id property="recipeId" column="RECIPE_ID" />
@@ -18,9 +19,9 @@
 		<result property="userId" column="USER_ID" />
 		<result property="recipeDate" column="RECIPE_DATE" />
 		<result property="bookmarkCount" column="BOOKMARK_COUNT" />
-		<collection property="userVO" resultMap="user"/>
+		<collection property="userVO" resultMap="user" />
 	</resultMap>
-	
+
 	<!-- 레시피 등록 전 레시피 아이디 찾기 -->
 	<select id="getMaxRecipeId" resultType="int">
 		SELECT max(RECIPE_ID)
@@ -46,7 +47,8 @@
 		SELECT A.*,B.NICKNAME
 		FROM RECIPE AS A, USER AS B
 		WHERE A.USER_ID=B.ID
-		AND A.RECIPE_TITLE LIKE CONCAT('%',#{searchKeyword},'%')
+		AND A.RECIPE_TITLE LIKE
+		CONCAT('%',#{searchKeyword},'%')
 	</select>
 
 	<!-- 상황별 레시피 검색 -->
@@ -54,7 +56,8 @@
 		resultMap="recipeList">
 		SELECT A.*,B.NICKNAME
 		FROM RECIPE AS A, USER AS B
-		WHERE A.USER_ID=B.ID 
+		WHERE
+		A.USER_ID=B.ID
 		AND A.RECIPE_SITUATION =
 		#{recipeSituation}
 	</select>
@@ -64,7 +67,8 @@
 		resultMap="recipeList">
 		SELECT A.*,B.NICKNAME
 		FROM RECIPE AS A, USER AS B
-		WHERE A.USER_ID=B.ID
+		WHERE
+		A.USER_ID=B.ID
 		AND A.RECIPE_INGREDIENT=
 		#{recipeIngredient}
 	</select>
@@ -94,16 +98,21 @@
 	<!-- 북마크 수 증가 -->
 	<update id="upBookmarkCount" parameterType="recipe">
 		UPDATE RECIPE
-		SET BOOKMARK_COUNT=BOOKMARK_COUNT+1
+		SET
+		BOOKMARK_COUNT=BOOKMARK_COUNT+1
 		WHERE RECIPE_ID=#{recipeId}
 	</update>
 
 	<!-- 북마크 수 감소 -->
 	<update id="downBookmarkCount" parameterType="recipe">
 		UPDATE RECIPE
-		SET BOOKMARK_COUNT=BOOKMARK_COUNT-1
+		SET
+		BOOKMARK_COUNT= CASE
+		WHEN BOOKMARK_COUNT > 0
+		THEN BOOKMARK_COUNT=BOOKMARK_COUNT -1
+		ELSE 0
+		END
 		WHERE RECIPE_ID=#{recipeId}
-		LIMIT 0
 	</update>
 
 	<!-- 내가 쓴 글 -->
@@ -117,6 +126,7 @@
 	<!-- 레시피 삭제 -->
 	<delete id="deleteRecipe" parameterType="recipe">
 		DELETE FROM RECIPE
-		WHERE RECIPE_ID =#{recipeId}
+		WHERE
+		RECIPE_ID =#{recipeId}
 	</delete>
 </mapper>
