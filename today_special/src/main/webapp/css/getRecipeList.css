@@ -38,8 +38,13 @@ td a>img{
     text-align: left;
 }
 
-span{
+.getspan1{
     font-weight: 900;
+    font-size: 14px;
+}
+
+.getspan{
+	font-weight: 900;
 }
 
 b{

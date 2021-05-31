@@ -16,7 +16,7 @@ if (login_check != null) {
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./css/getsituation.css?ver=1" type="text/css">
+<link rel="stylesheet" href="./css/getsituation.css?ver=2" type="text/css">
 <title>상황별 레시피</title>
 </head>
 <body>
@@ -59,7 +59,7 @@ if (login_check != null) {
 							<div class="boxs">
 								<img src="/today_img/${recipe.recipeThumbnail }" alt="" style="width: 150px">
 								<p>${recipe.recipeTitle}
-									<br>${recipe.userVO.nickname}
+									<br><span class="sitspan">${recipe.userVO.nickname}</span>
 								</p>
 							</div>
 						</div>
