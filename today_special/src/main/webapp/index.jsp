@@ -11,10 +11,11 @@
 %>
 <!DOCTYPE html>
 <html>
-<head>
+<head profile="http://www.w3.org/2005/10/profile">
 <meta charset="utf-8">
 <title>오늘의 요리</title>
-<link rel="stylesheet" href="./css/index.css" type="text/css">
+<link rel="stylesheet" href="./css/index.css?" type="text/css">
+<link rel="icon" type="image/png" href="http://example.com/myicon.png">
 </head>
 <body>
 	<div id="wrap">
@@ -41,7 +42,6 @@
                 <label for="slide4">&nbsp;</label>
             </div>
         </div>
-
         <section id="menus">
             <div id="menu1"><a class="maina" href="#">오늘 베스트 요리</a></div>
             <div id="menu2"><a class="maina" href="#">인기 레시피</a></div>

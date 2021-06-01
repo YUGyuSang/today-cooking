@@ -11,14 +11,14 @@
 	<!-- 외부 북마크 중복 체크 -->
 	<select id="checkBookmarkOuter" parameterType="outer" resultType="int">
 		SELECT COUNT(*)
-		FROM BOOKMARK_OUTER
+		FROM bookmark_outer
 		WHERE OUTER_URL= #{outerUrl}
 		AND USER_ID=#{userId}
 	</select>
 	<!-- 외부 북마크 등록 -->
 	<insert id="insertBookmarkOuter" parameterType="outer">
 		INSERT INTO
-		BOOKMARK_OUTER(OUTER_URL,OUTER_TITLE,OUTER_THUMBNAIL,USER_ID)
+		bookmark_outer(OUTER_URL,OUTER_TITLE,OUTER_THUMBNAIL,USER_ID)
 		VALUES(
 		#{outerUrl},
 		#{outerTitle},
@@ -29,12 +29,12 @@
 	<!-- 외부 북마크 리턴 -->
 	<select id="getBookmarkOuter" parameterType="String" resultMap="outerList">
 		SELECT *
-		FROM BOOKMARK_OUTER
+		FROM bookmark_outer
 		WHERE USER_ID = #{userId}
 	</select>
 	<!-- 외부 북마크 삭제 -->
 	<delete id="deleteBookmarkOuter" parameterType="outer">
-		DELETE FROM BOOKMARK_OUTER
+		DELETE FROM bookmark_outer
 		WHERE OUTER_ID=#{outerId}
 	</delete>
 </mapper>

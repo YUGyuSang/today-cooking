@@ -10,7 +10,7 @@
 	</resultMap>
 	<!-- 회원 등록 -->
 	<insert id="insertUser" parameterType="user">
-		INSERT INTO USER(ID,
+		INSERT INTO user(ID,
 		PASSWORD, EMAIL, NICKNAME,PROFILE)
 		VALUES(#{id},#{password},#{email},#{nickname},#{profile})
 	</insert>
@@ -19,7 +19,7 @@
 	<select id="login" parameterType="user" resultType="int">
 		SELECT
 		COUNT(*)
-		FROM USER
+		FROM user
 		WHERE ID = #{id}
 		AND PASSWORD = #{password}
 	</select>
@@ -29,20 +29,20 @@
 		SELECT
 		ID,
 		PASSWORD,EMAIL,NICKNAME,PROFILE
-		FROM USER
+		FROM user
 		WHERE ID =#{id}
 	</select>
 	
 	<!-- 회원 정보 수정 -->
 	<update id="updateUser" parameterType="user">
-		UPDATE USER
+		UPDATE user
 		SET PASSWORD=#{password},EMAIL=#{email},NICKNAME=#{nickname},PROFILE=#{profile}
 		WHERE ID=#{id}
 	</update>
 	
 	<!-- 회원 탈퇴 -->
 	<delete id="deleteUser" parameterType="user">
-		DELETE FROM USER
+		DELETE FROM user
 		WHERE ID =#{id}
 	</delete>
 </mapper>

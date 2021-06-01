@@ -62,9 +62,9 @@ public class RecipeDAO {
 
 	// 내가 쓴 글
 	public List<RecipeVO> getMyRecipeList(String userId) {
-		return mybatis.selectList("RecipeDAO.getMyRecipeList",userId);
+		return mybatis.selectList("RecipeDAO.getMyRecipeList", userId);
 	}
-	
+
 	// 레시피 삭제
 	public void deleteRecipe(RecipeVO revo) {
 		mybatis.delete("RecipeDAO.deleteRecipe", revo);

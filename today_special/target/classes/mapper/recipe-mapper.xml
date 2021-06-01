@@ -25,12 +25,13 @@
 	<!-- 레시피 등록 전 레시피 아이디 찾기 -->
 	<select id="getMaxRecipeId" resultType="int">
 		SELECT max(RECIPE_ID)
-		FROM RECIPE
+		FROM recipe
 	</select>
+
 	<!-- 레시피 등록 -->
 	<insert id="insertRecipe" parameterType="recipe">
 		INSERT INTO
-		RECIPE(RECIPE_ID,RECIPE_TITLE,RECIPE_CONTENT,RECIPE_SITUATION,RECIPE_INGREDIENT,RECIPE_THUMBNAIL,USER_ID)
+		recipe(RECIPE_ID,RECIPE_TITLE,RECIPE_CONTENT,RECIPE_SITUATION,RECIPE_INGREDIENT,RECIPE_THUMBNAIL,USER_ID)
 		VALUES(#{recipeId},#{recipeTitle},#{recipeContent},#{recipeSituation},#{recipeIngredient},#{recipeThumbnail},#{userId})
 	</insert>
 
@@ -38,14 +39,14 @@
 	<select id="getRecipe" parameterType="int"
 		resultMap="recipeList">
 		SELECT *
-		FROM RECIPE
+		FROM recipe
 		WHERE RECIPE_ID = #{recipeId}
 	</select>
 
 	<!-- 키워드로 레시피 검색 -->
 	<select id="getKeywordRecipe" resultMap="recipeList">
 		SELECT A.*,B.NICKNAME
-		FROM RECIPE AS A, USER AS B
+		FROM recipe AS A, user AS B
 		WHERE A.USER_ID=B.ID
 		AND A.RECIPE_TITLE LIKE
 		CONCAT('%',#{searchKeyword},'%')
@@ -55,7 +56,7 @@
 	<select id="getSituationRecipe" parameterType="String"
 		resultMap="recipeList">
 		SELECT A.*,B.NICKNAME
-		FROM RECIPE AS A, USER AS B
+		FROM recipe AS A, user AS B
 		WHERE
 		A.USER_ID=B.ID
 		AND A.RECIPE_SITUATION =
@@ -66,7 +67,7 @@
 	<select id="getIngredientRecipe" parameterType="String"
 		resultMap="recipeList">
 		SELECT A.*,B.NICKNAME
-		FROM RECIPE AS A, USER AS B
+		FROM recipe AS A, user AS B
 		WHERE
 		A.USER_ID=B.ID
 		AND A.RECIPE_INGREDIENT=
@@ -76,7 +77,7 @@
 	<!-- 일간 베스트 -->
 	<select id="getTodayBest" resultMap="recipeList">
 		SELECT *
-		FROM RECIPE
+		FROM recipe
 		WHERE
 		RECIPE_DATE > DATE_ADD(now(), INTERVAL -24 HOUR)
 		ORDER BY
@@ -87,7 +88,7 @@
 	<!-- 주간 베스트 -->
 	<select id="getWeeklyBest" resultMap="recipeList">
 		SELECT *
-		FROM RECIPE
+		FROM recipe
 		WHERE
 		RECIPE_DATE > DATE_ADD(now(), INTERVAL -7 DAY)
 		ORDER BY BOOKMARK_COUNT
@@ -97,7 +98,7 @@
 
 	<!-- 북마크 수 증가 -->
 	<update id="upBookmarkCount" parameterType="recipe">
-		UPDATE RECIPE
+		UPDATE recipe
 		SET
 		BOOKMARK_COUNT=BOOKMARK_COUNT+1
 		WHERE RECIPE_ID=#{recipeId}
@@ -105,27 +106,25 @@
 
 	<!-- 북마크 수 감소 -->
 	<update id="downBookmarkCount" parameterType="recipe">
-		UPDATE RECIPE
+	<![CDATA[
+		UPDATE recipe
 		SET
-		BOOKMARK_COUNT= CASE
-		WHEN BOOKMARK_COUNT > 0
-		THEN BOOKMARK_COUNT=BOOKMARK_COUNT -1
-		ELSE 0
-		END
-		WHERE RECIPE_ID=#{recipeId}
+		BOOKMARK_COUNT=BOOKMARK_COUNT-1
+		WHERE RECIPE_ID=#{recipeId} AND ( BOOKMARK_COUNT = 1 OR BOOKMARK_COUNT > 1)
+	]]>
 	</update>
 
 	<!-- 내가 쓴 글 -->
 	<select id="getMyRecipeList" parameterType="String"
 		resultMap="recipeList">
 		SELECT *
-		FROM RECIPE
+		FROM recipe
 		WHERE USER_ID=#{userId}
 	</select>
 
 	<!-- 레시피 삭제 -->
 	<delete id="deleteRecipe" parameterType="recipe">
-		DELETE FROM RECIPE
+		DELETE FROM recipe
 		WHERE
 		RECIPE_ID =#{recipeId}
 	</delete>

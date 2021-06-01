@@ -32,21 +32,21 @@ if (login_check != null) {
 					<legend>재료별 분류</legend>
 					<ul class="recipes">
 						<li class="gli"><a href="getIngredientRecipe.do?key=정육"><img src="./img/meat.png" alt="">
-							<p>정육</p></a></li>
+								<p>정육</p></a></li>
 						<li class="gli"><a href="getIngredientRecipe.do?key=수산"><img src="./img/fish.png" alt="">
-							<p>수산</p></a></li>
+								<p>수산</p></a></li>
 						<li class="gli"><a href="getIngredientRecipe.do?key=채소"><img src="./img/vegetable.png" alt="">
-							<p>채소</p></a></li>
+								<p>채소</p></a></li>
 						<li class="gli"><a href="getIngredientRecipe.do?key=계란"><img src="./img/egg.png" alt="">
-							<p>계란</p></a></li>
+								<p>계란</p></a></li>
 						<li class="gli"><a href="getIngredientRecipe.do?key=과일"><img src="./img/fruit.png" alt="">
-							<p>과일</p></a></li>
+								<p>과일</p></a></li>
 						<li class="gli"><a href="getIngredientRecipe.do?key=면"><img src="./img/noodle.png" alt="">
-							<p>면</p></a></li>
+								<p>면</p></a></li>
 						<li class="gli"><a href="getIngredientRecipe.do?key=떡"><img src="./img/tteok.png" alt="">
-							<p>떡</p></a></li>
+								<p>떡</p></a></li>
 						<li class="gli"><a href="getIngredientRecipe.do?key=기타"><img src="./img/Various.png" alt="">
-							<p>기타</p></a></li>
+								<p>기타</p></a></li>
 					</ul>
 				</fieldset>
 			</div>
@@ -57,9 +57,11 @@ if (login_check != null) {
 					<c:forEach items="${recipeList}" var="recipe">
 						<div class="recipebox">
 							<div class="boxs">
-								<img src="/today_img/${recipe.recipeThumbnail }" alt="">
+								<a href="getRecipe.do?recipeId=${recipe.recipeId }"> <img src="/today_img/${recipe.recipeThumbnail }" alt="">
+								</a>
 								<p>
-									${recipe.recipeTitle}<br><span class="sitspan">${recipe.userVO.nickname}</span>
+									${recipe.recipeTitle}<br>
+									<span class="sitspan">${recipe.userVO.nickname}</span>
 								</p>
 							</div>
 						</div>
