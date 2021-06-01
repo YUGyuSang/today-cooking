@@ -9,7 +9,7 @@
 	</resultMap>
 	<insert id="insertOrder" parameterType="order">
 		INSERT INTO
-		`ORDER`(ORDER_NUM,ORDER_CONTENT,RECIPE_ID)
+		`order`(ORDER_NUM,ORDER_CONTENT,RECIPE_ID)
 		VALUES(
 		#{orderNum},
 		#{orderContent},
@@ -19,7 +19,7 @@
 	<!-- 재료리스트 리턴 -->
 	<select id="getOrderList" parameterType="int" resultMap="orderList">
 		SELECT *
-		FROM `ORDER`
+		FROM `order`
 		WHERE RECIPE_ID = #{recipeId}
 	</select>
 </mapper>

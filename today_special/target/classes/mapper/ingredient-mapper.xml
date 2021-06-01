@@ -10,7 +10,7 @@
 	<!-- 재료 등록 -->
 	<insert id="insertIngredient" parameterType="ingredient">
 		INSERT INTO
-		INGREDIENT(INGREDIENT_NAME,INGREDIENT_AMOUNT,RECIPE_ID)
+		ingredient(INGREDIENT_NAME,INGREDIENT_AMOUNT,RECIPE_ID)
 		VALUES(
 		#{ingredientName},
 		#{ingredientAmount},
@@ -20,7 +20,7 @@
 	<!-- 재료리스트 리턴 -->
 	<select id="getIngredientList" parameterType="int" resultMap="ingredientList">
 		SELECT *
-		FROM INGREDIENT
+		FROM ingredient
 		WHERE RECIPE_ID = #{recipeId}
 	</select>
 </mapper>

@@ -10,14 +10,14 @@
 	<select id="checkBookmarkInner" parameterType="inner"
 		resultType="int">
 		SELECT COUNT(*)
-		FROM BOOKMARK_INNER
+		FROM bookmark_inner
 		WHERE RECIPE_ID=#{recipeId}
 		AND USER_ID=#{userId}
 	</select>
 	<!-- 내부 북마크 등록 -->
 	<insert id="insertBookmarkInner" parameterType="inner">
 		INSERT INTO
-		BOOKMARK_INNER(RECIPE_ID,USER_ID)
+		bookmark_inner(RECIPE_ID,USER_ID)
 		VALUES(
 		#{recipeId},
 		#{userId}
@@ -27,12 +27,12 @@
 	<select id="getBookmarkInner" parameterType="String"
 		resultMap="innerList">
 		SELECT *
-		FROM BOOKMARK_INNER
+		FROM bookmark_inner
 		WHERE USER_ID = #{userId}
 	</select>
 	<!-- 내부 북마크 삭제 -->
 	<delete id="deleteBookmarkInner" parameterType="inner">
-		DELETE FROM BOOKMARK_INNER
+		DELETE FROM bookmark_inner
 		WHERE RECIPE_ID=#{recipeId}
 		AND USER_ID=#{userId}
 	</delete>
