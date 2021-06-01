@@ -96,6 +96,7 @@ if (login_check != null) {
 					<h3>카테고리</h3>
 					<select name="recipeSituation" id="">
 						<option value="상황별">상황별</option>
+						<option value="파티">파티</option>
 						<option value="캠핑">캠핑</option>
 						<option value="술안주">술 안주</option>
 						<option value="야식">야식</option>
