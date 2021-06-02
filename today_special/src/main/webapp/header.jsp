@@ -31,8 +31,8 @@
                     <ul>
                         <li class="menu"><a href="index.jsp">메인</a></li>
                         <li class="menu"><a href="getRankingList.do">랭킹</a></li>
-                        <li class="menu"><a href="getSituationList.jsp">상황별</a></li>
-                        <li class="menu"><a href="getIngredientList.jsp">재료별</a></li>
+                        <li class="menu"><a href="getSituationRecipe.do?key='파티'">상황별</a></li>
+                        <li class="menu"><a href="getIngredientRecipe.do?key='정육'">재료별</a></li>
                     </ul>
                 </nav>
                 </div>

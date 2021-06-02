@@ -64,7 +64,6 @@ if (login_check != null) {
 								<td><div class="bookmark">
 										<button>추가</button>
 									</div></td>
-								<!-- <div class="bookmark"><a href=""><img src="./img/bookmark.png" alt=""></a></div> -->
 							</tr>
 						</form>
 					</c:forEach>
@@ -87,8 +86,6 @@ if (login_check != null) {
 								<td class="t2"><a href=${naver.url } target="_blank"><p class="naver_p">${naver.title }</a>
 									</p></td>
 								<td class="t3"><button>추가</button></td>
-<%-- 								<td class="t3"><button type="button"><a href="insertBookmarkOuter.do?outerUrl=${ naver.url}&outerTitle=${naver.title}&outerThumbnail=${naver.thumbnailUrl}">추가</a></button></td> --%>
-								<!-- <div class="bookmark"><a href=""><img src="./img/bookmark.png" alt=""></a></div> -->
 							</tr>
 						</form>
 					</c:forEach>
