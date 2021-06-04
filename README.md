@@ -1,4 +1,4 @@
-# 오늘의 요리(today special)
+# 오늘의 요리(today cooking)
 
 ## 팀 구성 및 역할
 김주연 : Back-End <br>
@@ -17,5 +17,7 @@ Front-End : Figma, HTML, CSS, Javascprit, VSCode
 <img src="https://user-images.githubusercontent.com/61386041/120675676-3ec0da80-c4d0-11eb-9bb9-6b9b43dc28c6.PNG" width="900">
 
 ## 사이트 바로가기
-테스트 ID/PW<br>
-test / test
+test ID : test<br>
+test PW : test<br>
+
+www.todaycooking.kr
