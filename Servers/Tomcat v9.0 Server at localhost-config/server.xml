@@ -103,7 +103,7 @@
 				<Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
 				<Context docBase="today_special" path="/today" reloadable="true" source="org.eclipse.jst.jee.server:today_special"/>
-				<Context docBase="C:/spring_img/" path="/today_img" reloadable="true"/>
+				<Context docBase="C:/spring_img/" path="/dev" reloadable="true"/>
 			</Host>
 		</Engine>
 	</Service>

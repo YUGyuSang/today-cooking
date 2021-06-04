@@ -57,7 +57,7 @@ if (login_check != null) {
 					<c:forEach items="${recipeList}" var="recipe">
 						<div class="recipebox">
 							<div class="boxs">
-								<a href="getRecipe.do?recipeId=${recipe.recipeId }"> <img src="/today_img/${recipe.recipeThumbnail }" alt="">
+								<a href="getRecipe.do?recipeId=${recipe.recipeId }"> <img src="/dev/${recipe.recipeThumbnail }" alt="">
 								</a>
 								<p>
 									${recipe.recipeTitle}<br>

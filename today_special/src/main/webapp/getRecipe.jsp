@@ -27,7 +27,7 @@ if (login_check != null) {
 
 	<div id="continer">
 		<div id="title">
-			<img src="/today_img/${recipe.recipeThumbnail }" alt="소개 이미지">
+			<img src="/dev/${recipe.recipeThumbnail }" alt="소개 이미지">
 			<div class="title_h">
 				<h1>${recipe.recipeTitle }</h1>
 			</div>

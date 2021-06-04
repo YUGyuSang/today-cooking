@@ -11,6 +11,9 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 	
+	<mvc:annotation-driven />
+	<context:component-scan
+		base-package="com.myspring.today" />
 	<!-- DataSource 설정 -->
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -32,9 +35,16 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 		<constructor-arg ref="sqlSessionFactory" />
 	</bean>
-	
-	<mvc:annotation-driven />
-	<context:component-scan
-		base-package="com.myspring.today" />
+
+	<beans profile="local">   
+		<bean id="ProfileCls" class="com.myspring.today.ProfileCls">
+			<property name="rootPath" value="C:/spring_img/"/>
+		</bean>
+	</beans>
+	<beans profile="dev">   
+		<bean id="ProfileCls" class="com.myspring.today.ProfileCls">
+			<property name="rootPath" value="/usr/local/tomcat/webapps/dev/"/>
+		</bean>
+	</beans>
 
 </beans>

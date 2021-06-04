@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.myspring.today.ProfileCls;
 import com.myspring.today.bookmark.BookmarkInnerDAO;
 import com.myspring.today.bookmark.BookmarkInnerVO;
 import com.myspring.today.bookmark.BookmarkOuterDAO;
@@ -28,6 +29,8 @@ public class BookmarkController {
 	BookmarkInnerDAO innerDAO;
 	@Autowired
 	RecipeDAO recipeDAO;
+	@Autowired
+	ProfileCls profileCls;
 
 	// 내부 북마크 등록
 	@RequestMapping(value = "/insertBookmarkInner.do")
@@ -89,6 +92,8 @@ public class BookmarkController {
 			recipeList.add(recipeDAO.getRecipe(recipeId));
 		}
 		List<BookmarkOuterVO> outerList = outerDAO.getBookmarkOuter(userId);
+		String rootPath=profileCls.getRootPath();
+		mv.addObject("rootPath",rootPath);
 		mv.addObject("recipeList", recipeList);
 		mv.addObject("outerList", outerList);
 		mv.setViewName("getBookmarkList.jsp");

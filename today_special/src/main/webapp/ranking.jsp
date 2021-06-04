@@ -33,7 +33,7 @@
         <div class="te">
         <c:forEach items="${todayList}" var="today">
             <div class="recipebox">
-                <div class="boxs"><a href="getRecipe.do?recipeId=${today.recipeId }"><img src="/today_img/${today.recipeThumbnail }" alt=""><p>${today.recipeTitle } <br>북마크: ${today.bookmarkCount }  </p></a></div>
+                <div class="boxs"><a href="getRecipe.do?recipeId=${today.recipeId }"><img src="/dev/${today.recipeThumbnail }" alt=""><p>${today.recipeTitle } <br>북마크: ${today.bookmarkCount }  </p></a></div>
             </div>
         </c:forEach>
         </div>
@@ -44,7 +44,7 @@
         <div class="te">
          <c:forEach items="${weeklyList}" var="weekly">
             <div class="recipebox">
-                <div class="boxs"><a href="getRecipe.do?recipeId=${weekly.recipeId }"><img src="/today_img/${weekly.recipeThumbnail }" alt=""><p>${weekly.recipeTitle } <br>북마크: ${weekly.bookmarkCount } </p></a></div>
+                <div class="boxs"><a href="getRecipe.do?recipeId=${weekly.recipeId }"><img src="/dev/${weekly.recipeThumbnail }" alt=""><p>${weekly.recipeTitle } <br>북마크: ${weekly.bookmarkCount } </p></a></div>
             </div>
          </c:forEach>
         </div>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.myspring.today.ProfileCls;
 import com.myspring.today.bookmark.BookmarkInnerDAO;
 import com.myspring.today.bookmark.BookmarkInnerVO;
 import com.myspring.today.ingredient.IngredientDAO;
@@ -33,6 +34,8 @@ public class RecipeController {
 	private OrderDAO orderDAO;
 	@Autowired
 	private BookmarkInnerDAO innerDAO;
+	@Autowired
+	private ProfileCls profileCls;
 
 	// 레시피 등록 하기 전 MaxRecipeId 찾기
 	@RequestMapping("/getMaxRecipeId.do")
@@ -55,9 +58,13 @@ public class RecipeController {
 			@RequestParam("orderContent") String[] orderContent, @RequestParam("recipeThumb") MultipartFile thumb)
 			throws IOException {
 		if (!thumb.isEmpty()) {
+			int index=thumb.getOriginalFilename().lastIndexOf(".");
+			String extension=thumb.getOriginalFilename().substring(index);
 			UUID uuid = UUID.randomUUID();
-			String fileName = uuid + "_" + thumb.getOriginalFilename();
-			thumb.transferTo(new File("C:/spring_img/" + fileName));
+			String fileName = System.currentTimeMillis()+"_"+uuid+extension;
+			System.out.println(fileName);
+			String rootPath=profileCls.getRootPath();
+			thumb.transferTo(new File(rootPath + fileName));
 			revo.setRecipeThumbnail(fileName);
 		}
 		recipeDAO.insertRecipe(revo);

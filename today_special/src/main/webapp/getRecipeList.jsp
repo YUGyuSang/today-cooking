@@ -35,7 +35,7 @@ if (login_check != null) {
 						<c:forEach items="${recipeList}" var="recipe">
 							<form action="" method="post">
 								<td><a href="getRecipe.do?recipeId=${recipe.recipeId} "> <img
-										src="/today_img/${recipe.recipeThumbnail }">
+										src="/dev/${recipe.recipeThumbnail }">
 										<p class="search_p">
 											<span class="getspan">${recipe.recipeTitle}</span> <br> <span class="getspan1">${recipe.userVO.nickname}</span>
 										</p></a></td>
