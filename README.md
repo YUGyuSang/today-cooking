@@ -16,6 +16,13 @@ Front-End : Figma, HTML, CSS, Javascprit, VSCode
 ## 데이터 베이스 설계
 <img src="https://user-images.githubusercontent.com/61386041/120675676-3ec0da80-c4d0-11eb-9bb9-6b9b43dc28c6.PNG" width="900">
 
+## 오늘의 요리 주요 기능
+- 레시피 등록
+- 레시피 상황별/재료별 분류
+- 검색바 이용하여 검색 시 유튜브, 네이버 검색 결과 스크래핑
+- 레시피 북마크
+- 레시피 랭킹 
+
 ## 사이트 바로가기
 test ID : test<br>
 test PW : test<br>
