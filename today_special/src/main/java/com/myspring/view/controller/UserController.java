@@ -71,18 +71,21 @@ public class UserController {
 
 	// 회원정보 수정
 	@RequestMapping("updateUser.do")
-	public ModelAndView updateUser(UserVO vo, @RequestParam("bf_profile") MultipartFile img, ModelAndView mv,
-			HttpServletResponse response) throws IOException {
-		if (img != null && !img.isEmpty()) {
+	public String updateUser(UserVO vo, @RequestParam("bf_profile") MultipartFile img,
+			HttpSession session,HttpServletResponse response) throws IOException {
+		if(img !=null && !img.isEmpty()) {
 			vo.setProfile(img.getBytes());
+		}else { //이미지 수정 안 했을 시에 null 되는 것 방지, byte[] 타입을 사용해서 많이 비효율적이라고 생각합니다.
+			String loginId = (String) session.getAttribute("loginId");
+			UserVO user=userDAO.getUser(loginId);
+			vo.setProfile(user.getProfile());
 		}
 		userDAO.updateUser(vo);
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		out.println("<script>alert('회원정보 수정 완료'); </script>");
 		out.flush();
-		mv.setViewName("getUser.do");
-		return mv;
+		return "getUser.do";
 	}
 
 	// 회원 탈퇴

@@ -35,7 +35,7 @@
 				<c:forEach items="${recipeList}" var="recipe">
 					<form action="deleteRecipe.do">
 					<input type="hidden" name="recipeId" value="${recipe.recipeId}">
-					<td><a href="getRecipe.do?recipeId=${recipe.recipeId }"><img src="/today_img/${recipe.recipeThumbnail }" alt=""></a>
+					<td><a href="getRecipe.do?recipeId=${recipe.recipeId }"><img src="/dev/${recipe.recipeThumbnail }" alt=""></a>
 						<p>${recipe.recipeTitle }</p>
 						<button>삭제</button></td>
 					</form>
