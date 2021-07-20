@@ -16,14 +16,11 @@
 		<div id="background">
 			<div id=litext class="main1">
 				<div id="main">
-
-
-
 					<div id="list">
 						<ul>
 							<li class="lilist"><a href="#"><i
 									class="fas fa-question"></i></a></li>
-							<li class="lilist"><a href="#"><i class="fas fa-comment"></i></a></li>
+							<li class="lilist"><a href="https://github.com/juyeonkim97/today-cooking" target="_blank"><i class="fab fa-github"></i></a></li>
 							<li class="lilist"><a href="#"><i
 									class="fab fa-instagram"></i></a></li>
 							<li class="lilist"><a href="#"><i class="fas fa-music"></i></a></li>

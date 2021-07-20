@@ -23,13 +23,13 @@
                 <h1>로그인</h1>
             </div>
             <div class="inputs">
-                <input type="text" name="id" placeholder="아이디">
+                <input type="text" name="id" placeholder="아이디" value="test">
             </div>
             <div>
                 <a href=""><button id="log">로그인</button></a>
             </div>
             <div class="inputsd">
-                <input type="password" name="password" value="" placeholder="비밀번호">
+                <input type="password" name="password" value="" placeholder="비밀번호" value="test">
             </div>
             <div class="signup">
                 <a href="signUp.jsp"><button type="button" id="signup">회원가입</button></a>

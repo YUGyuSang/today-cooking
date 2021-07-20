@@ -45,7 +45,7 @@
 	<!-- use profile root.xml이랑 class 수정 필요-->
 	<context-param>
 		<param-name>spring.profiles.active</param-name>
-		<param-value>dev</param-value>
+		<param-value>local</param-value>
 	</context-param>
 
 </web-app>
