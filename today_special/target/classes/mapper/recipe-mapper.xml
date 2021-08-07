@@ -49,7 +49,7 @@
 		FROM recipe AS A, user AS B
 		WHERE A.USER_ID=B.ID
 		AND A.RECIPE_TITLE LIKE
-		CONCAT('%',#{searchKeyword},'%')
+		CONCAT('%',#{keyword},'%')
 	</select>
 
 	<!-- 상황별 레시피 검색 -->

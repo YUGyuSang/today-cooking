@@ -10,13 +10,13 @@
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
 <body>
-    <form action="getSearchResult.do" method="post">
+    <form action="getSearchResult.do" method="get">
         <div id="container" class="warp">
             <div id="imger">
                 <img id="headerimg" src="./img/logo.png" alt="이미지">
             </div>
             <div id="srarch">
-                <input type="search" name="searchKeyword">
+                <input type="search" name="keyword">
                 <button class="srarch"><i class="fas fa-search"></i></button>
             </div>
           

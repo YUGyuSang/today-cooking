@@ -28,18 +28,16 @@ if (login_check != null) {
 	<form action="">
 		<div id="continer">
 			<div id="search_list">
-				<h1>"${searchKeyword }" 검색 결과</h1>
+				<h1>"${keyword }" 검색 결과</h1>
 				<hr>
 				<table id="search_table">
 					<tr>
 						<c:forEach items="${recipeList}" var="recipe">
-							<form action="" method="post">
-								<td><a href="getRecipe.do?recipeId=${recipe.recipeId} "> <img
-										src="/dev/${recipe.recipeThumbnail }">
-										<p class="search_p">
-											<span class="getspan">${recipe.recipeTitle}</span> <br> <span class="getspan1">${recipe.userVO.nickname}</span>
-										</p></a></td>
-							</form>
+							<td><a href="getRecipe.do?recipeId=${recipe.recipeId} "> <img src="/dev/${recipe.recipeThumbnail }">
+									<p class="search_p">
+										<span class="getspan">${recipe.recipeTitle}</span> <br> <span class="getspan1">${recipe.userVO.nickname}</span>
+									</p>
+							</a></td>
 						</c:forEach>
 					</tr>
 				</table>
@@ -82,7 +80,8 @@ if (login_check != null) {
 								<input type="hidden" name="outerUrl" value=${naver.url }>
 								<input type="hidden" name="outerTitle" value='${naver.title }'>
 								<input type="hidden" name="outerThumbnail" value=${naver.thumbnailUrl }>
-								<td class="t1"><a href=${naver.url } target="_blank"><img class="naverico" src="${naver.thumbnailUrl }" alt=""></a></td>
+								<td class="t1"><a href=${naver.url } target="_blank"><img class="naverico" src="${naver.thumbnailUrl }"
+										alt=""></a></td>
 								<td class="t2"><a href=${naver.url } target="_blank"><p class="naver_p">${naver.title }</a>
 									</p></td>
 								<td class="t3"><button>추가</button></td>

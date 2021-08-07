@@ -24,11 +24,11 @@ public class SearchController {
 	// 키워드 레시피 검색
 	@RequestMapping(value = "/getSearchResult.do")
 	public ModelAndView getSearchResult(RecipeVO vo, ModelAndView mv) throws UnsupportedEncodingException {
-		String searchKeyword = vo.getSearchKeyword();
+		String keyword = vo.getKeyword();
 		List<RecipeVO> recipeList = recipeDAO.getKeywordRecipe(vo);
-		List<YoutubeVO> YoutubeList = youtube.getYoutubeList(searchKeyword);
-		List<NaverVO> NaverList = naver.getNaverList(searchKeyword);
-		mv.addObject("searchKeyword", searchKeyword);
+		List<YoutubeVO> YoutubeList = youtube.getYoutubeList(keyword);
+		List<NaverVO> NaverList = naver.getNaverList(keyword);
+		mv.addObject("keyword", keyword);
 		mv.addObject("recipeList", recipeList);
 		mv.addObject("YoutubeList", YoutubeList);
 		mv.addObject("NaverList", NaverList);

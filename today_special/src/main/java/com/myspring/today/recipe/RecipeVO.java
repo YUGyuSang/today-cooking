@@ -17,7 +17,7 @@ public class RecipeVO {
 	private UserVO userVO;
 	
 	//검색을 위한 변수
-	private String searchKeyword;
+	private String keyword;
 	
 	public int getRecipeId() {
 		return recipeId;
@@ -75,11 +75,11 @@ public class RecipeVO {
 		this.userId = userId;
 	}
 	
-	public String getSearchKeyword() {
-		return searchKeyword;
+	public String getKeyword() {
+		return keyword;
 	}
-	public void setSearchKeyword(String searchKeyword) {
-		this.searchKeyword = searchKeyword;
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 	
 	public UserVO getUserVO() {
