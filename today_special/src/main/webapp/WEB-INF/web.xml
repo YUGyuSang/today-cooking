@@ -41,7 +41,6 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-	
 	<!-- use profile root.xml이랑 class 수정 필요-->
 	<context-param>
 		<param-name>spring.profiles.active</param-name>

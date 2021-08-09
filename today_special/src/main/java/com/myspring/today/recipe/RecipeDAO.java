@@ -11,6 +11,7 @@ public class RecipeDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 
+	//레시피 등록 전 레시피 id 정하기(변경해야 됨, 별로 좋은 방법이 아님)
 	public int getMaxRecipeId() {
 		return mybatis.selectOne("RecipeDAO.getMaxRecipeId");
 	}
@@ -70,4 +71,8 @@ public class RecipeDAO {
 		mybatis.delete("RecipeDAO.deleteRecipe", revo);
 	}
 
+	// 모든 레시피 id 리턴
+	public List<RecipeVO> getAllRecipeId() {
+		return mybatis.selectList("RecipeDAO.getAllRecipeId");
+	}
 }

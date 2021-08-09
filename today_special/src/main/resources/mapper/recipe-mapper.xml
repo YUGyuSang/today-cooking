@@ -128,4 +128,10 @@
 		WHERE
 		RECIPE_ID =#{recipeId}
 	</delete>
+	
+	<!-- 모든 레시피 ID 리턴 -->
+	<select id="getAllRecipeId" resultMap="recipeList">
+		SELECT recipe_id
+		FROM recipe
+	</select>
 </mapper>
