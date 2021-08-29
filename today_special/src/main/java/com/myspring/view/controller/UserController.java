@@ -64,7 +64,7 @@ public class UserController {
 			ResponseEntity<byte[]> ret = new ResponseEntity<>(user.getProfile(), header, HttpStatus.OK);
 			return ret;
 		} catch (Exception e) {
-
+			System.out.println(e);
 		}
 		return null;
 	}

@@ -52,7 +52,6 @@ if (login_check != null) {
 					</c:otherwise>
 				</c:choose>
 				<p>${recipe.bookmarkCount }</p>
-
 			</div>
 			<div class="mat_sit">
 				<p>

@@ -61,23 +61,25 @@ public class RecipeController {
 			int index=thumb.getOriginalFilename().lastIndexOf(".");
 			String extension=thumb.getOriginalFilename().substring(index);
 			UUID uuid = UUID.randomUUID();
-			String fileName = System.currentTimeMillis()+"_"+uuid+extension;
+			String fileName = System.currentTimeMillis()+"_"+uuid+extension; //파일명 생성
 			System.out.println(fileName);
-			String rootPath=profileCls.getRootPath();
-			thumb.transferTo(new File(rootPath + fileName));
-			revo.setRecipeThumbnail(fileName);
+			String rootPath=profileCls.getRootPath(); //프로필을 통해 현재 local인지 dev인지 확인 후 파일 저장 위치 지정
+			thumb.transferTo(new File(rootPath + fileName)); //서버에 이미지 저장
+			revo.setRecipeThumbnail(fileName); //db에는 파일명을 저장
 		}
-		recipeDAO.insertRecipe(revo);
+		recipeDAO.insertRecipe(revo); //레시피 저장
 		int i;
 		int recipeId = revo.getRecipeId();
-		for (i = 0; i < ingredientName.length; i++) {
+		//재료 박스 개수만큼 for문으로 insert
+		for (i = 0; i < ingredientName.length; i++) { 
 			IngredientVO invo = new IngredientVO();
 			invo.setIngredientName(ingredientName[i]);
 			invo.setIngredientAmount(ingredientAmount[i]);
 			invo.setRecipeId(recipeId);
 			ingredientDAO.insertIngredient(invo);
 		}
-		for (i = 0; i < orderContent.length; i++) {
+		//순서 박스 개수만큼 for문으로 insert
+		for (i = 0; i < orderContent.length; i++) { 
 			OrderVO orvo = new OrderVO();
 			orvo.setOrderNum(i + 1);
 			orvo.setOrderContent(orderContent[i]);
