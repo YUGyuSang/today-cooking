@@ -71,8 +71,19 @@ public class RecipeDAO {
 		mybatis.delete("RecipeDAO.deleteRecipe", revo);
 	}
 
-	// 모든 레시피 id 리턴
+	// 모든 레시피 id 리턴, 스케줄러에서 이용
 	public List<RecipeVO> getAllRecipeId() {
 		return mybatis.selectList("RecipeDAO.getAllRecipeId");
 	}
+	
+	//페이징 처리를 위한 레시피 개수 세기
+	public int getRecipeCount() {
+		return mybatis.selectOne("RecipeDAO.getRecipeCount");
+	}
+
+	//limit과 offset을 받아 select
+	public List<RecipeVO> getRecipeList(RecipeVO revo) {
+		return mybatis.selectList("RecipeDAO.getRecipeList",revo);
+	}
+
 }

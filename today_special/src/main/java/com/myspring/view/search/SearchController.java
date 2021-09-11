@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.myspring.today.recipe.Pagination;
 import com.myspring.today.recipe.RecipeDAO;
 import com.myspring.today.recipe.RecipeVO;
 
@@ -38,20 +39,43 @@ public class SearchController {
 
 	// 상황별 레시피 검색
 	@RequestMapping(value = "/getSituationRecipe.do")
-	public ModelAndView getSituationRecipe(@RequestParam("key") String situation, ModelAndView mv) {
-		List<RecipeVO> recipeList = recipeDAO.getSituationRecipe(situation);
+	public ModelAndView getSituationRecipe(RecipeVO vo,@RequestParam("key") String situation,@RequestParam(defaultValue="1") int curPage, ModelAndView mv) {
+		List<RecipeVO> recipeList;
+		Pagination pagination = null;
+		if(situation.equals("전체")) {
+			int listCnt=recipeDAO.getRecipeCount();
+			pagination=new Pagination(listCnt,curPage);
+			vo.setPageSize(pagination.getPageSize()); //db 쿼리의 limit
+			vo.setStartIndex(pagination.getStartIndex()); //db 쿼리의 offset
+			recipeList = recipeDAO.getRecipeList(vo);
+		}else {
+			recipeList = recipeDAO.getSituationRecipe(situation);
+		}
 		mv.addObject("situation", situation);
 		mv.addObject("recipeList", recipeList);
+		mv.addObject("pagination", pagination);
 		mv.setViewName("getSituationList.jsp");
 		return mv;
 	}
 
 	// 재료별 레시피 검색
 	@RequestMapping(value = "/getIngredientRecipe.do")
-	public ModelAndView getIngredientRecipe(@RequestParam("key") String ingredient, ModelAndView mv) {
-		List<RecipeVO> recipeList = recipeDAO.getIngredientRecipe(ingredient);
+	public ModelAndView getIngredientRecipe(RecipeVO vo,@RequestParam("key") String ingredient,@RequestParam(defaultValue="1") int curPage, ModelAndView mv) {
+		List<RecipeVO> recipeList;
+		Pagination pagination=null;
+		if(ingredient.equals("전체")) {
+			System.out.println("전체는 들어옴");
+			int listCnt=recipeDAO.getRecipeCount();
+			pagination=new Pagination(listCnt,curPage);
+			vo.setPageSize(pagination.getPageSize()); //db 쿼리의 limit
+			vo.setStartIndex(pagination.getStartIndex()); //db 쿼리의 offset
+			recipeList = recipeDAO.getRecipeList(vo);
+		}else {
+			recipeList = recipeDAO.getIngredientRecipe(ingredient);
+		}
 		mv.addObject("ingredient", ingredient);
 		mv.addObject("recipeList", recipeList);
+		mv.addObject("pagination", pagination);
 		mv.setViewName("getIngredientList.jsp");
 		return mv;
 	}

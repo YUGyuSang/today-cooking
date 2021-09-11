@@ -19,6 +19,10 @@ public class RecipeVO {
 	//검색을 위한 변수
 	private String keyword;
 	
+	// 페이징 처리를 위한 변수 
+	private int pageSize;
+	private int startIndex;
+	
 	public int getRecipeId() {
 		return recipeId;
 	}
@@ -82,17 +86,34 @@ public class RecipeVO {
 		this.keyword = keyword;
 	}
 	
+	public int getPageSize() {
+		return pageSize;
+	}
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+	public int getStartIndex() {
+		return startIndex;
+	}
+	public void setStartIndex(int startIndex) {
+		this.startIndex = startIndex;
+	}
+	
 	public UserVO getUserVO() {
 		return userVO;
 	}
 	public void setUserVO(UserVO userVO) {
 		this.userVO = userVO;
 	}
+	
 	@Override
 	public String toString() {
-		return "RecipeVO [recipeId=" + recipeId + ", recipeTitle=" + recipeTitle
-				+ ", recipeContent=" + recipeContent + ", recipeSituation=" + recipeSituation
-				+ ", recipeIngredient=" + recipeIngredient + ", userId=" + userId + "]";
+		return "RecipeVO [recipeId=" + recipeId + ", recipeTitle=" + recipeTitle + ", recipeContent=" + recipeContent
+				+ ", recipeSituation=" + recipeSituation + ", recipeIngredient=" + recipeIngredient
+				+ ", recipeThumbnail=" + recipeThumbnail + ", bookmarkCount=" + bookmarkCount + ", recipeDate="
+				+ recipeDate + ", userId=" + userId + ", userVO=" + userVO + ", keyword=" + keyword + ", pageSize="
+				+ pageSize + ", startIndex=" + startIndex + "]";
 	}
+	
 
 }

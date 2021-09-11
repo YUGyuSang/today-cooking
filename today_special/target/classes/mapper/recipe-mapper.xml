@@ -128,10 +128,27 @@
 		WHERE
 		RECIPE_ID =#{recipeId}
 	</delete>
-	
+
 	<!-- 모든 레시피 ID 리턴 -->
 	<select id="getAllRecipeId" resultMap="recipeList">
 		SELECT recipe_id
+		FROM
+		recipe
+	</select>
+
+	<!-- 레시피 개수 리턴 (아직은 분류없는 경우만 구현) -->
+	<select id="getRecipeCount" resultType="int">
+		SELECT COUNT(*)
 		FROM recipe
 	</select>
+
+	<!-- 페이징 처리한 레시피 리스트 -->
+	<select id="getRecipeList" parameterType="int"
+		resultMap="recipeList">
+		SELECT *
+		FROM recipe
+		LIMIT #{pageSize}
+		OFFSET #{startIndex}
+	</select>
+
 </mapper>
