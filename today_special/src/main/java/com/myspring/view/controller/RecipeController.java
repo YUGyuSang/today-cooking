@@ -58,10 +58,10 @@ public class RecipeController {
 			@RequestParam("orderContent") String[] orderContent, @RequestParam("recipeThumb") MultipartFile thumb)
 			throws IOException {
 		if (!thumb.isEmpty()) {
-			int index=thumb.getOriginalFilename().lastIndexOf(".");
-			String extension=thumb.getOriginalFilename().substring(index);
+			int index=thumb.getOriginalFilename().lastIndexOf(".");//파일명
+			String extension=thumb.getOriginalFilename().substring(index);//확장자
 			UUID uuid = UUID.randomUUID();
-			String fileName = System.currentTimeMillis()+"_"+uuid+extension; //파일명 생성
+			String fileName = System.currentTimeMillis()+"_"+uuid+extension; //파일명 조합(현재시간_랜덤문자열.확장자)
 			System.out.println(fileName);
 			String rootPath=profileCls.getRootPath(); //프로필을 통해 현재 local인지 dev인지 확인 후 파일 저장 위치 지정
 			thumb.transferTo(new File(rootPath + fileName)); //서버에 이미지 저장
