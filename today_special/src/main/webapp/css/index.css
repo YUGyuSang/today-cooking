@@ -20,7 +20,7 @@
 }
 
 .mainimgs{
-    width: 100%;
+    width : 1000px !important;
     height: 350px;
     object-fit: cover;
 }
@@ -136,4 +136,27 @@ ul.imgs .mainli{
     left: 0;
     transition: 0.5s;
     z-index:1;
+}
+
+/* 일반 폰 사이즈 */
+@media screen and (max-width: 800px){
+    #menus{
+        display: block;
+        margin: 0px;
+    }
+    #menus > div{
+        margin: 0px;
+        margin-bottom: 20px;
+        width: 98%;
+        height: 220px;
+    }
+    #menus>#menu1{
+        margin-top: 15px;
+        
+    }   
+
+    #continer{
+        width: 100%;
+    }
+    
 }

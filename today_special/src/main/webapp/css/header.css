@@ -91,5 +91,42 @@ li{
     height: 70px;
 }
 
+/* 일반 폰 사이즈 */
+@media screen and (max-width: 800px) {
+    nav ul{
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+    #menu_var{
+        background-color: #9BBC00;
+        height: 100%;
+    }
+    nav{
+        margin: 0px 0px 0px 0px;
+        width: 100%;
+    }
+    #container{
+        width: 100%;
+        margin: 0px auto;
+    }
+    .dropdown{
+        padding-bottom: 5px;
+        padding-top: 30px;
+    }
+    .warp{
+        padding: 0px;
+    }
+
+    nav ul li:last-child{
+        padding-bottom: 15px;
+    }
+    
+    .headerspan{
+    	position: relative;
+        top: 15px;
+    }
+ }
+
 
 
