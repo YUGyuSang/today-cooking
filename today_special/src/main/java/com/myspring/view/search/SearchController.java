@@ -64,7 +64,6 @@ public class SearchController {
 		List<RecipeVO> recipeList;
 		Pagination pagination=null;
 		if(ingredient.equals("전체")) {
-			System.out.println("전체는 들어옴");
 			int listCnt=recipeDAO.getRecipeCount();
 			pagination=new Pagination(listCnt,curPage);
 			vo.setPageSize(pagination.getPageSize()); //db 쿼리의 limit
