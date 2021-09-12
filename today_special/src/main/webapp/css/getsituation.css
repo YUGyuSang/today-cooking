@@ -84,7 +84,11 @@ hr{
     width: 120px;
     height: 110px;
 }
-
+#sit{
+	width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
 .sitspan{
 	font-size: 14px;
 }
