@@ -32,13 +32,13 @@ public class RecipeDAO {
 	}
 
 	// 상황별 레시피 검색시
-	public List<RecipeVO> getSituationRecipe(String recipeSituation) {
-		return mybatis.selectList("RecipeDAO.getSituationRecipe", recipeSituation);
+	public List<RecipeVO> getSituationRecipe(RecipeVO vo) {
+		return mybatis.selectList("RecipeDAO.getSituationRecipe", vo);
 	}
 
 	// 재료별 레시피 검색시
-	public List<RecipeVO> getIngredientRecipe(String recipeIngredient) {
-		return mybatis.selectList("RecipeDAO.getIngredientRecipe", recipeIngredient);
+	public List<RecipeVO> getIngredientRecipe(RecipeVO vo) {
+		return mybatis.selectList("RecipeDAO.getIngredientRecipe", vo);
 	}
 
 	// 일간 베스트
@@ -67,8 +67,8 @@ public class RecipeDAO {
 	}
 
 	// 레시피 삭제
-	public void deleteRecipe(RecipeVO revo) {
-		mybatis.delete("RecipeDAO.deleteRecipe", revo);
+	public void deleteRecipe(RecipeVO vo) {
+		mybatis.delete("RecipeDAO.deleteRecipe", vo);
 	}
 
 	// 모든 레시피 id 리턴, 스케줄러에서 이용
@@ -82,8 +82,17 @@ public class RecipeDAO {
 	}
 
 	//limit과 offset을 받아 select
-	public List<RecipeVO> getRecipeList(RecipeVO revo) {
-		return mybatis.selectList("RecipeDAO.getRecipeList",revo);
+	public List<RecipeVO> getRecipeList(RecipeVO vo) {
+		return mybatis.selectList("RecipeDAO.getRecipeList",vo);
 	}
+
+	public int getSituationCount(String situation) {
+		return mybatis.selectOne("RecipeDAO.getSituationCount",situation);
+	}
+
+	public int getIngredientCount(String ingredient) {
+		return mybatis.selectOne("RecipeDAO.getIngredientCount",ingredient);
+	}
+
 
 }

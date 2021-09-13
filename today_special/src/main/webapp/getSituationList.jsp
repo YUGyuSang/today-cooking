@@ -19,8 +19,9 @@ if (login_check != null) {
 <link rel="stylesheet" href="./css/getsituation.css?ver=3" type="text/css">
 <title>상황별 레시피</title>
 <script>
-	function fn_paging(curPage) {
-		location.href = "getSituationRecipe.do?key=전체&curPage=" + curPage;
+	function fn_paging(key, curPage) {
+		location.href = "getSituationRecipe.do?key=" + key + "&curPage="
+				+ curPage;
 	}
 </script>
 </head>
@@ -76,10 +77,10 @@ if (login_check != null) {
 		</div>
 		<div id="sit">
 			<c:if test="${pagination.curRange ne 1 }">
-				<a href="#" onClick="fn_paging(1)">[처음]</a>
+				<a href="#" onClick="fn_paging('${situation}',1)">[처음]</a>
 			</c:if>
 			<c:if test="${pagination.curPage ne 1}">
-				<a href="#" onClick="fn_paging('${pagination.prevPage }')">[이전]</a>
+				<a href="#" onClick="fn_paging('${situation}','${pagination.prevPage }')">[이전]</a>
 			</c:if>
 			<c:forEach var="pageNum" begin="${pagination.startPage }" end="${pagination.endPage }">
 				<c:choose>
@@ -87,15 +88,15 @@ if (login_check != null) {
 						<span style="font-weight: bold;"><a href="#" onClick="fn_paging('${pageNum }')">${pageNum }</a></span>
 					</c:when>
 					<c:otherwise>
-						<a href="#" onClick="fn_paging('${pageNum }')">${pageNum }</a>
+						<a href="#" onClick="fn_paging('${situation}','${pageNum }')">${pageNum }</a>
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
 			<c:if test="${pagination.curPage ne pagination.pageCnt && pagination.pageCnt > 0}">
-				<a href="#" onClick="fn_paging('${pagination.nextPage }')">[다음]</a>
+				<a href="#" onClick="fn_paging('${situation}','${pagination.nextPage }')">[다음]</a>
 			</c:if>
 			<c:if test="${pagination.curRange ne pagination.rangeCnt && pagination.rangeCnt > 0}">
-				<a href="#" onClick="fn_paging('${pagination.pageCnt }')">[끝]</a>
+				<a href="#" onClick="fn_paging('${situation}','${pagination.pageCnt }')">[끝]</a>
 			</c:if>
 		</div>
 	</form>
