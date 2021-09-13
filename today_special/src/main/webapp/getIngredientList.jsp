@@ -73,7 +73,7 @@ if (login_check != null) {
 				</div>
 			</div>
 		</div>
-		<div>
+		<div id="sit">
 			<c:if test="${pagination.curRange ne 1 }">
 				<a href="#" onClick="fn_paging(1)">[처음]</a>
 			</c:if>
