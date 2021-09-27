@@ -5,7 +5,7 @@ public class Pagination {
 	private int pageSize = 10;
 
 	/** 한 블럭(range)당 페이지 수(이전, 다음으로 넘어가는 그 단위) **/
-	private int rangeSize = 10;
+	private int rangeSize = 5;
 
 	/** 현재 페이지 **/
 	private int curPage = 1;
