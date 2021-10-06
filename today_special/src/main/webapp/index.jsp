@@ -14,7 +14,7 @@
 <head profile="http://www.w3.org/2005/10/profile">
 <meta charset="utf-8">
 <title>오늘의 요리</title>
-<link rel="stylesheet" href="./css/index.css?ver=1" type="text/css">
+<link rel="stylesheet" href="./css/index.css?ver=2" type="text/css">
 <link rel="icon" type="image/png" href="http://example.com/myicon.png">
 </head>
 <body>

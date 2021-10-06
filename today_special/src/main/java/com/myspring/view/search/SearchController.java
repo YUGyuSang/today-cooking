@@ -49,7 +49,12 @@ public class SearchController {
 			vo.setStartIndex(pagination.getStartIndex()); //db 쿼리의 offset
 			recipeList = recipeDAO.getRecipeList(vo);
 		}else {
-			recipeList = recipeDAO.getSituationRecipe(situation);
+			int listCnt=recipeDAO.getSituationCount(situation);
+			pagination=new Pagination(listCnt,curPage);
+			vo.setPageSize(pagination.getPageSize()); //db 쿼리의 limit
+			vo.setStartIndex(pagination.getStartIndex()); //db 쿼리의 offset
+			vo.setRecipeSituation(situation);
+			recipeList = recipeDAO.getSituationRecipe(vo);
 		}
 		mv.addObject("situation", situation);
 		mv.addObject("recipeList", recipeList);
@@ -64,14 +69,18 @@ public class SearchController {
 		List<RecipeVO> recipeList;
 		Pagination pagination=null;
 		if(ingredient.equals("전체")) {
-			System.out.println("전체는 들어옴");
 			int listCnt=recipeDAO.getRecipeCount();
 			pagination=new Pagination(listCnt,curPage);
 			vo.setPageSize(pagination.getPageSize()); //db 쿼리의 limit
 			vo.setStartIndex(pagination.getStartIndex()); //db 쿼리의 offset
 			recipeList = recipeDAO.getRecipeList(vo);
 		}else {
-			recipeList = recipeDAO.getIngredientRecipe(ingredient);
+			int listCnt=recipeDAO.getIngredientCount(ingredient);
+			pagination=new Pagination(listCnt,curPage);
+			vo.setPageSize(pagination.getPageSize()); //db 쿼리의 limit
+			vo.setStartIndex(pagination.getStartIndex()); //db 쿼리의 offset
+			vo.setRecipeIngredient(ingredient);
+			recipeList = recipeDAO.getIngredientRecipe(vo);
 		}
 		mv.addObject("ingredient", ingredient);
 		mv.addObject("recipeList", recipeList);

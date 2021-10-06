@@ -2,7 +2,7 @@ package com.myspring.today.recipe;
 
 public class Pagination {
 	/** 한 페이지당 게시글 수 **/
-	private int pageSize = 15;
+	private int pageSize = 10;
 
 	/** 한 블럭(range)당 페이지 수(이전, 다음으로 넘어가는 그 단위) **/
 	private int rangeSize = 10;

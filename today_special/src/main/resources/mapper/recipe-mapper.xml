@@ -52,8 +52,34 @@
 		CONCAT('%',#{keyword},'%')
 	</select>
 
+	<!-- 레시피 개수 리턴(분류 없음) -->
+	<select id="getRecipeCount" resultType="int">
+		SELECT COUNT(*)
+		FROM recipe
+	</select>
+
+	<!-- 모든 레시피 리스트 -->
+	<select id="getRecipeList" parameterType="int"
+		resultMap="recipeList">
+		SELECT A.*,B.NICKNAME
+		FROM recipe AS A, user AS B
+		WHERE
+		A.USER_ID=B.ID
+		LIMIT #{pageSize}
+		OFFSET #{startIndex}
+	</select>
+
+	<!-- 상황별 레시피 개수 리턴 -->
+	<select id="getSituationCount" parameterType="String"
+		resultType="int">
+		SELECT COUNT(*)
+		FROM recipe
+		WHERE
+		RECIPE_SITUATION=#{situation}
+	</select>
+
 	<!-- 상황별 레시피 검색 -->
-	<select id="getSituationRecipe" parameterType="String"
+	<select id="getSituationRecipe" parameterType="recipe"
 		resultMap="recipeList">
 		SELECT A.*,B.NICKNAME
 		FROM recipe AS A, user AS B
@@ -61,10 +87,22 @@
 		A.USER_ID=B.ID
 		AND A.RECIPE_SITUATION =
 		#{recipeSituation}
+		LIMIT
+		#{pageSize}
+		OFFSET #{startIndex}
+	</select>
+	
+	<!-- 재료별 레시피 개수 리턴 -->
+	<select id="getIngredientCount" parameterType="String"
+		resultType="int">
+		SELECT COUNT(*)
+		FROM recipe
+		WHERE
+		RECIPE_INGREDIENT=#{ingredient}
 	</select>
 
 	<!-- 재료별 레시피 검색 -->
-	<select id="getIngredientRecipe" parameterType="String"
+	<select id="getIngredientRecipe" parameterType="recipe"
 		resultMap="recipeList">
 		SELECT A.*,B.NICKNAME
 		FROM recipe AS A, user AS B
@@ -72,6 +110,9 @@
 		A.USER_ID=B.ID
 		AND A.RECIPE_INGREDIENT=
 		#{recipeIngredient}
+		LIMIT
+		#{pageSize}
+		OFFSET #{startIndex}
 	</select>
 
 	<!-- 일간 베스트 -->
@@ -135,20 +176,4 @@
 		FROM
 		recipe
 	</select>
-
-	<!-- 레시피 개수 리턴 (아직은 분류없는 경우만 구현) -->
-	<select id="getRecipeCount" resultType="int">
-		SELECT COUNT(*)
-		FROM recipe
-	</select>
-
-	<!-- 페이징 처리한 레시피 리스트 -->
-	<select id="getRecipeList" parameterType="int"
-		resultMap="recipeList">
-		SELECT *
-		FROM recipe
-		LIMIT #{pageSize}
-		OFFSET #{startIndex}
-	</select>
-
 </mapper>
