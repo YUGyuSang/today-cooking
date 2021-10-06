@@ -39,7 +39,7 @@ public class SearchController {
 
 	// 상황별 레시피 검색
 	@RequestMapping(value = "/getSituationRecipe.do")
-	public ModelAndView getSituationRecipe(RecipeVO vo,@RequestParam("key") String situation,@RequestParam(defaultValue="1") int curPage, ModelAndView mv) {
+	public ModelAndView getSituationRecipe(RecipeVO vo,@RequestParam("key") String situation,@RequestParam(value="curPage",defaultValue="1") int curPage, ModelAndView mv) {
 		List<RecipeVO> recipeList;
 		Pagination pagination = null;
 		if(situation.equals("전체")) {
@@ -65,7 +65,7 @@ public class SearchController {
 
 	// 재료별 레시피 검색
 	@RequestMapping(value = "/getIngredientRecipe.do")
-	public ModelAndView getIngredientRecipe(RecipeVO vo,@RequestParam("key") String ingredient,@RequestParam(defaultValue="1") int curPage, ModelAndView mv) {
+	public ModelAndView getIngredientRecipe(RecipeVO vo,@RequestParam("key") String ingredient,@RequestParam(value="curPage",defaultValue="1") int curPage, ModelAndView mv) {
 		List<RecipeVO> recipeList;
 		Pagination pagination=null;
 		if(ingredient.equals("전체")) {
