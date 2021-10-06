@@ -82,4 +82,31 @@ button:hover{
     font-size: 18px;
 }
 
+/* 일반 폰 사이즈 */
+@media screen and (max-width: 800px){
+   
+    #header{
+        width: 100%;
+    }
+    
+    #log{
+        margin-right: 0px;
+        width: 10%;
+        font-size: 1.5em;
+    }
+
+    #container{
+        width: 90%;
+    }
+
+    .inputs input{
+        width: 80%;
+    }
+
+    .inputsd input{
+        width: 80%;
+    }
+
+}
+
 

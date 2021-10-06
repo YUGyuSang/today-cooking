@@ -49,3 +49,23 @@
 ::placeholder{
     font-size: 15px;
 }
+
+/* 일반 폰 사이즈 */
+@media screen and (max-width: 800px){
+   
+    #header{
+        width: 100%;
+    }
+    
+    #container{
+        width: 90%;
+    }
+
+    .inputs input{
+        width: 80%;
+        padding: 1rem;
+    }
+    #signupbtn button{
+        width: 100%;
+    }
+}

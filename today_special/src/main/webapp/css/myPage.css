@@ -93,6 +93,25 @@ img{
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+/* 일반 폰 사이즈 */
+@media screen and (max-width: 800px){
+   
+    #container{
+        width: 100%;
+        padding: 0px;
+    }
+
+    .inputs input{
+        padding: 1rem;
+    }
+
+    #end{
+        width: 300px;
+        margin-top: 10px;
+    }
+    
+}
+
 
 
 

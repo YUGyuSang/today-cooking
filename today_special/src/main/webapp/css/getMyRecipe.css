@@ -64,3 +64,18 @@ td a>img{
     overflow: hidden; text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+/* 일반 폰 사이즈 */
+@media screen and (max-width: 800px) {
+    
+    #continer{
+        width: 100%;
+    }
+    #my_table tr td{
+        margin-left: 0px;
+    }
+    #my_table{
+        text-align: center;
+    }
+
+}
