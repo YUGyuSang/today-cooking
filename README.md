@@ -21,10 +21,4 @@ Front-End : Figma, HTML, CSS, Javascprit, VSCode
 - 레시피 상황별/재료별 분류
 - 검색바 이용하여 검색 시 유튜브, 네이버 검색 결과 스크래핑
 - 레시피 북마크
-- 레시피 랭킹 
-
-## 사이트 바로가기
-test ID : test<br>
-test PW : test<br>
-
-www.todaycooking.kr
+- 레시피 랭킹
