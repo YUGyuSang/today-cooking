@@ -6,7 +6,7 @@
 
 ## 개발 언어 및 환경
 Back-End : Java, JSP, Spring, Mysql, Mybatis, AWS lightsail<br>
-Front-End : Figma, HTML, CSS, Javascprit, VSCode
+Front-End : Figma, HTML, CSS, Javascript, VSCode
 
 ## 개발 배경
 오늘의 요리는 레시피를 검색하고 공유할 수 있는 사이트입니다. 레시피를 찾을 때 레시피 사이트, 네이버, 유튜브 등 여러 사이트를 이용하게 됩니다.<br>
